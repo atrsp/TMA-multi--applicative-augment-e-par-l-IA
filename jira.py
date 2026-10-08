@@ -1,7 +1,7 @@
 import random
 import requests
 from requests.auth import HTTPBasicAuth
-
+import csv
 
 JIRA_URL = "https://malakmilib.atlassian.net"
 EMAIL = "malakmilib14@gmail.com"
@@ -89,7 +89,7 @@ def get_tickets():
         ticket = {
             "key": issue["key"],
             "summary": issue["fields"]["summary"],
-            "description": issue["fields"]["description"]["content"][0]["content"][0]["text"]
+            "description": issue["fields"].get("description"),
         }
 
 
@@ -141,6 +141,15 @@ ticket_model = [
 
 
 tickets = get_tickets()
+
+with open("tickets.csv", "w", newline="", encoding="utf-8-sig") as fichier:
+    colonnes = ["key", "summary", "description"]
+
+    writer = csv.DictWriter(fichier, fieldnames=colonnes)
+    writer.writeheader()
+    writer.writerows(tickets)
+
+print(f"{len(tickets)} tickets enregistrés dans tickets.csv")
 
 
 for ticket in tickets:

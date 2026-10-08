@@ -1,0 +1,16 @@
+﻿key,summary,description
+TMA-25,lalala,
+TMA-24,BLABLA BLA,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'It’s just a test.'}], 'attrs': {'localId': 'efe483592091'}}]}"
+TMA-23,Blablablaaaa,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'lalalaaaaa'}], 'attrs': {'localId': 'cf780522ccdf'}}]}"
+TMA-22,Bug authentification,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Lorsque je rentre le mot de passe, il y a un chargement qui dure 5 min, ensuite un message d’erreur est affiché “erreur d’authentification”'}], 'attrs': {'localId': '34c6a880f8ba'}}]}"
+TMA-20,Erreur de connexion,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de se connecter.""}]}]}"
+TMA-19,Problème d'inscription,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un nouvel utilisateur rencontre un problème lorsqu'il essaie de créer un compte.""}]}]}"
+TMA-18,Problème d'inscription,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un nouvel utilisateur rencontre un problème lorsqu'il essaie de créer un compte.""}]}]}"
+TMA-17,Erreur de connexion,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de se connecter.""}]}]}"
+TMA-16,Erreur de profil,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de modifier son profil.""}]}]}"
+TMA-15,Erreur de paiement,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un client rencontre un problème lorsqu'il essaie de effectuer un paiement.""}]}]}"
+TMA-14,Erreur de connexion,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de se connecter.""}]}]}"
+TMA-13,Page lente,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de charger la page.""}]}]}"
+TMA-12,Erreur de paiement,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un client rencontre un problème lorsqu'il essaie de effectuer un paiement.""}]}]}"
+TMA-11,Erreur de connexion,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""Un utilisateur rencontre un problème lorsqu'il essaie de se connecter.""}]}]}"
+TMA-10,Impossible de modifier le profil,"{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': ""La modification du profil n'est pas enregistrée.""}]}]}"
