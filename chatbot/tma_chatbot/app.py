@@ -4,8 +4,8 @@ import streamlit as st
 
 from llm import MODEL, chat
 
-st.set_page_config(page_title="Assistant TMA augmenté", page_icon="🎫")
-st.title("🎫 Assistant TMA augmenté")
+st.set_page_config(page_title="Assistant TMA augmenté")
+st.title("Assistant TMA augmenté")
 
 with st.sidebar:
     st.subheader("Exemples de questions")
@@ -17,7 +17,7 @@ with st.sidebar:
         "- Que contient la famille `export_pdf_timeout` ?"
     )
     st.caption(f"Modèle : {MODEL}")
-    if st.button("Nouvelle conversation", icon="🔄"):
+    if st.button("Nouvelle conversation"):
         st.session_state.messages = []
         st.rerun()
 
@@ -29,7 +29,7 @@ def afficher(message: dict) -> None:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         if message.get("duree"):
-            st.caption(f"⏱ {message['duree']:.1f} s")
+            st.caption(f"Durée : {message['duree']:.1f} s")
         if message.get("sources"):
             with st.expander("Données utilisées"):
                 for source in message["sources"]:
@@ -48,15 +48,17 @@ if question := st.chat_input("Posez votre question sur les tickets"):
         for message in st.session_state.messages
     ]
 
-    with st.spinner("Analyse en cours..."):
-        try:
-            answer, sources, duration = chat(history)
-        except Exception as error:
-            answer = (
-                f"Impossible de joindre le LLM ({type(error).__name__}). "
-                "Vérifiez qu'il est lancé."
-            )
-            sources, duration = [], 0.0
+    loading_message = st.empty()
+    loading_message.text("Analyse en cours...")
+    try:
+        answer, sources, duration = chat(history)
+    except Exception as error:
+        answer = (
+            f"Impossible de joindre le LLM ({type(error).__name__}). "
+            "Vérifiez qu'il est lancé."
+        )
+        sources, duration = [], 0.0
+    loading_message.empty()
 
     assistant_message = {
         "role": "assistant",

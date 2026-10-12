@@ -33,6 +33,7 @@ Regles :
 - Si un outil ne renvoie rien, contient `avertissement`, ou ne couvre pas la question,
   indique clairement que tu ne disposes pas d'informations suffisantes. Ne devine pas.
 - Reponds en francais, de facon concise. N'invente aucun ticket ni aucune cause.
+- N'utilise pas d'emojis dans tes reponses.
 - Tes reponses sont des propositions : aucune action n'est executee, la decision revient
   a l'humain.
 """
