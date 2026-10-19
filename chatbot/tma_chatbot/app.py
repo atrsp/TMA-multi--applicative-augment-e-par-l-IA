@@ -5,6 +5,26 @@ import streamlit as st
 from llm import MODEL, chat
 
 st.set_page_config(page_title="Assistant TMA augmenté")
+
+# --- Masque le bouton Deploy et le widget de statut, mais laisse les 3 petits points (menu) ---
+st.markdown(
+    """
+    <style>
+    /* Cible spécifiquement le bouton Deploy */
+    [data-testid="stDeployButton"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    /* Cible le widget de statut / chargement en haut à droite */
+    [data-testid="stStatusWidget"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.title("Assistant TMA augmenté")
 
 with st.sidebar:
