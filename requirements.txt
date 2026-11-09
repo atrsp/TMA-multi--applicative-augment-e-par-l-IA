@@ -2,6 +2,7 @@ Pour télécharger les bilbiothèque il faudra faire : pip install -r requiremen
 
 
 pandas
+numpy
 scikit-learn
 matplotlib
 bertopic
@@ -10,4 +11,5 @@ nltk
 openai
 python-dotenv
 plotly
+nbformat
 ipykernel
