@@ -32,7 +32,7 @@ if "question_a_poser" not in st.session_state:
     st.session_state.question_a_poser = None
 
 with st.sidebar:
-    st.subheader("Exemples de questions")
+    st.subheader("Questions Classiques")
     
     # Liste de tes exemples de questions
     exemples = [
