@@ -1,0 +1,8 @@
+Pour télécharger les bilbiothèque il faudra faire : pip install -r requirements.txt
+
+
+pandas
+scikit-learn
+matplotlib
+bertopic
+sentence-transformers

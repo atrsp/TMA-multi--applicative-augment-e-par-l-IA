@@ -1,0 +1,436 @@
+{
+  "F-SSO": [
+    {
+      "summary": "Problème de connexion au portail client pour CLI-2824",
+      "description": "Client n'a plus accès au portail depuis 00h30, erreur de session expirée."
+    },
+    {
+      "summary": "Problème de connexion au portail client depuis 21h00",
+      "description": "Client CLI-2679 rencontre un problème de session expiree depuis plus de 2 heures."
+    },
+    {
+      "summary": "Problème de connexion au portail client depuis 02h15",
+      "description": "Le client CLI-1488 ne peut plus se connecter au portail depuis 02h15, message de session expirée."
+    },
+    {
+      "summary": "Problème de connexion au portail Client",
+      "description": "Impossible de se connecter au portail Client depuis 17h15, message 'Session expirée'"
+    },
+    {
+      "summary": "problème de connexion au portail client depuis 13h15",
+      "description": "le client n peut plus se connecter, erreur session expirée depuis 13h15"
+    },
+    {
+      "summary": "Problème de connexion au portail client pour CLI-1106",
+      "description": "Le client CLI-1106 rencontre des difficultés pour se connecter au portail depuis 05h45, affichant un message de session expirée."
+    },
+    {
+      "summary": "Problème de connexion au Portail Client CLI-4527",
+      "description": "Client n’est pas en mesure de se connecter depuis 10h00, message d’erreur 'Session expirée'. Vérifions l'—état du ticket et procéderons à des tests de connexion."
+    },
+    {
+      "summary": "Problème de connexion au portail depuis 11h30",
+      "description": "Impossible de se connecter au portail depuis 11h30, le client CLI-6881 reçoit le message 'Session expirée'."
+    },
+    {
+      "summary": "Problème de connexion au portail Client - Session expirée",
+      "description": "Problème de connexion au portail Client avec message 'Session expirée' depuis 17h00."
+    },
+    {
+      "summary": "impossible de se connecter au portail",
+      "description": "client cli-5803 ne peut plus se connecter depuis 20h30, message 'session expirée'"
+    },
+    {
+      "summary": "Problème de connexion au portail Client pour le client CLI-2139",
+      "description": "Le client CLI-2139 rencontre une difficulté pour se connecter au portail depuis 01h15. Il est renvoyé à une erreur de session expirée."
+    },
+    {
+      "summary": "Problème de connexion au portail client expirée après 3h45",
+      "description": "Le client CLI-4814 rencontre un issue de session échouée sur le portail. L'aide est requise pour résoudre le problème."
+    },
+    {
+      "summary": "Connexion au portail client bloquée depuis 05h30",
+      "description": "Problème de connexion avec le message 'Session expirée'"
+    },
+    {
+      "summary": "Problème de connexion au portail client depuis 22h00",
+      "description": "Client CLI-5374 ne peut plus se connecter au portail client après 22h00 avec le message 'Session expirée'"
+    },
+    {
+      "summary": "problème de connexion au portail après 23h15",
+      "description": "pas de connexion possible depuis 23h15 pour le client CLI-9751, message de session expirée"
+    }
+  ],
+  "F-BATCH": [
+    {
+      "summary": "Batch Nocturne échec avec erreur ORA-01555",
+      "description": "Job nocturne Batch Nocturne s'est arrêté à 20h15 avec une erreur ORA-01555 (snapshot too old), perturbant les opérations bancaires."
+    },
+    {
+      "summary": "Batch Nocturne en échec avec erreur ORA-01555",
+      "description": "Le job de batch nocturne a arrêté à 01h30 en raison d'une erreur ORA-01555. Le journal systématique contient des informations sur l'erreur et les détails du job échoué. En attendant des solutions, le batch est mis à jour."
+    },
+    {
+      "summary": "Batch nocturne en échec depuis 18h30 avec erreur ORA-01555",
+      "description": "Le job nocturne s'est arrêté avec une erreur inattendue, la base de données est bloquée, je dois réveiller le système ASAP !"
+    },
+    {
+      "summary": "Batch nocturne en échec avec erreur ORA-01555",
+      "description": "Le job Batch nocturne a arrêté à 20h45 avec une erreur ORA-01555, indiquant un snapshot trop ancien."
+    },
+    {
+      "summary": "batch nocturne échoué avec erreur ora-01555",
+      "description": "le job batch nocturne s'est arrêté avec l'erreur ora-01555, le système est en panne"
+    },
+    {
+      "summary": "Échec Batch Nocturne avec erreur ORA-01555",
+      "description": "Le job Batch Nocturne s'est arrêté en erreur ORA-01555 à 11h15, affectant la disponibilité des services bancaires."
+    },
+    {
+      "summary": "Batch Nocturne échec ORA-01555",
+      "description": "Job arrêté à 01h00, erreur snapshot too old, affectant les transactions en cours."
+    },
+    {
+      "summary": "Batch nocturne en échec depuis 16h30 avec ORA-01555",
+      "description": "Problème rencontré avec le job nocturne qui s'est arrêté sans explication donnée"
+    },
+    {
+      "summary": "batch nocturne en échec erreur ora-01555",
+      "description": "job arrêté à 21h30 avec erreur snapshot too old"
+    },
+    {
+      "summary": "Batch de nuit en échec : erreur ORA-01555",
+      "description": "Le job nocturne s'est arrêté à 09h45 avec une erreur ORA-01555 due à un snapshot trop ancien. En attendant des informations, le processus est momentanément arrêté."
+    },
+    {
+      "summary": "Erreur ORA-01555 lors du Batch Nocturne en cours",
+      "description": "Le job Batch Nocturne s'est arrêté avec une erreur ORA-01555 (snapshot too old). Vérification des chronologies et réinitialisation de la table de contrôle."
+    },
+    {
+      "summary": "Batch nocturne en panne, erreur ORA-01555",
+      "description": "Le batch nocturne s'est arrêté à 20h15 avec une erreur ORA-01555. Je suis en train de vérifier la cause de l'erreur mais je suis un peu stressé car je sais que cela peut perturber les transactions de nos clients"
+    },
+    {
+      "summary": "batch nocturne échec erreur ora-01555",
+      "description": "erreur snapshot trop ancien, job arrêté à 03h30"
+    },
+    {
+      "summary": "Échec du batch nocturne avec erreur ORA-01555",
+      "description": "Le job de batch nocturne s'est arrêté à 04h15 avec une erreur de conservation de snapshot trop ancienne. Recherche des raisons de l'erreur et de la mise en place d'une solution pour éviter les répétitions."
+    },
+    {
+      "summary": "Batch nocturne s'est arrêté avec erreur ORA-01555",
+      "description": "Le job nocturne s'est coupe à 08h45 avec une erreur ORA-01555, nous avons donc des problèmès avec notre batch nocturne."
+    }
+  ],
+  "F-SEPA": [
+    {
+      "summary": "Virement SEPA rejeté pour client CLI-4295",
+      "description": "Problème récurrent de virement SEPA rejeté pour le client CLI-4295, code retour AC04"
+    },
+    {
+      "summary": "Virement SEPA rejeté pour CLI-7118 - Code retour AC04",
+      "description": "33 virements rejetés, cause probable technologie de paiement non cohérente, attendre mise à jour sur les codes de retour."
+    },
+    {
+      "summary": "Virement SEPA rejeté 153 échoués pour CLI-2049",
+      "description": "Problème avec les virements SEPA pour le client CLI-2049, code retour AC04, erreur sur les 153 virements rejetés"
+    },
+    {
+      "summary": "Virement SEPA rejeté pour client CLI-4608",
+      "description": "Problème de rejet de virement SEPA pour le client CLI-4608, code retour AC04"
+    },
+    {
+      "summary": "virement sepa cli-4750 rejeté avec code retour ac04",
+      "description": "client peut pas effectuer un virement sepa, erreur rejeté avec code ac04"
+    },
+    {
+      "summary": "Problème de rejet de virements SEPA pour client CLI-9423",
+      "description": "Virements SEPA rejetés pour le client CLI-9423, code retour AC04. Enquête en cours."
+    },
+    {
+      "summary": "Virement SEPA rejeté pour client CLI-9834 AC04",
+      "description": "Virements SEPA rejetés avec code retour AC04, affectant 65 transactions. Analyser pour identifier cause et mise en œuvre de solution."
+    },
+    {
+      "summary": "Virement SEPA rejeté pour client CLI-4119",
+      "description": "171 virements rejetés, code retour AC04, impossible de passer le virement pour le client CLI-4119"
+    },
+    {
+      "summary": "Virement SEPA rejeté pour le client CLI-7939",
+      "description": "Problème de virement SEPA, statut rejeté avec code retour AC04, sur 224 virements. Vérification en cours."
+    },
+    {
+      "summary": "virement sepa rejeté cli-2612 code retour ac04",
+      "description": "pas de virement sepa pour cli-2612, code ac04 sur notre système, après plusieurs tentatives de virement, le virement n'est toujours pas traité."
+    },
+    {
+      "summary": "Virement SEPA rejeté pour le client CLI-5073",
+      "description": "140 virements SEPA rejetés avec code retour AC04, nécessitant une analyse et une solution pour remédier à ce problème"
+    },
+    {
+      "summary": "Virement SEPA rejeté pour CLI-7912, 121 virements AC04",
+      "description": "Problème de transmission de virement SEPA avec retour AC04. Le client a 121 virements rejetés, nous devons résoudre le problème."
+    },
+    {
+      "summary": "Problème de virement SEPA rejeté pour client CLI-8260",
+      "description": "15 virements SEPA rejetés pour le client CLI-8260, code retour AC04, sans raison claire."
+    },
+    {
+      "summary": "Virement SEPA rejeté pour client CLI-1241",
+      "description": "Problème de virement SEPA pour le client CLI-1241 avec un code retour AC04."
+    },
+    {
+      "summary": "virement sepa rejeté pour client cli-8886",
+      "description": "234 virements rejetés avec code retour ac04, problème persiste depuis hier soir"
+    }
+  ],
+  "F-PDF": [
+    {
+      "summary": "Export PDF vide pour dossier DOS-69638",
+      "description": "Le conseiller a obtenu un PDF vide pour le dossier en question, ce qui est inattendu. Il nous demande de trouver une solution rapide."
+    },
+    {
+      "summary": "Incident export PDF vide dans Espace Conseiller",
+      "description": "Rappelé par le conseiller sur le dossier DOS-34890, l'export PDF est vide, impossible de visualiser les données."
+    },
+    {
+      "summary": "Problème de génération de PDF vide pour les dossiers",
+      "description": "Je me suis rendu compte que le PDF pour le dossier DOS-51104 est vide, ce qui est absolument inacceptable !"
+    },
+    {
+      "summary": "Problème de export PDF vide dans l'Espace Conseiller",
+      "description": "Le conseiller reçoit un dossier avec un PDF vide pour le dossier DOS-79615, sans explication de la cause du problème."
+    },
+    {
+      "summary": "export pdf vide pour dos-34356",
+      "description": "conseiller obtient un pdf vide, besoin de solution ASAP"
+    },
+    {
+      "summary": "Problème d'export PDF vide pour le dossier DOS-25713",
+      "description": "Le conseiller a obtenu un PDF vide pour le dossier mentionné, ce qui entrave notre analyse et notre prise de décision."
+    },
+    {
+      "summary": "Incident : Export PDF vide du dossier DOS-20745",
+      "description": "Problème rencontré par le conseiller lors de l'exportation de PDF du dossier en question, aboutissant à une publication vide."
+    },
+    {
+      "summary": "Problème de connexion de PDF vide pour dossier DOS-97782",
+      "description": "Le conseiller X.X n'obtient pas de PDF pour le dossier DOS-97782, l'export est vide, ce qui gène la production"
+    },
+    {
+      "summary": "Problème d'export PDF vide dans le dossier DOS-27154",
+      "description": "Le conseiller reçoit un fichier PDF vide pour le dossier mentionné, sans explication claire de la cause du problème."
+    },
+    {
+      "summary": "export pdf vide pour dossier dos-19508",
+      "description": "conseiller obtient un pdf vide, pas de contenu pour le dossier"
+    },
+    {
+      "summary": "Problème d'export PDF vide pour le dossier DOS-80468",
+      "description": "Le conseiller n'a pas pu imprimer le rapport demandé pour le dossier DOS-80468."
+    },
+    {
+      "summary": "Incident : Export PDF vide pour le dossier DOS-55745",
+      "description": "L'export PDF du dossier DOS-55745 est vide. Vérification des paramètres de configuration et de liaison aux serveurs."
+    },
+    {
+      "summary": "Export PDF vide pour dossier DOS-67433",
+      "description": "Conseiller obtient un PDF vide, ce qui est très frustrant et perturbe notre travail, nous avons besoin d'un export correct pour continuer à avancer."
+    },
+    {
+      "summary": "Problème de export PDF vide pour le dossier DOS-82692",
+      "description": "Le conseiller reçoit un PDF vide, malgré l'export requis."
+    },
+    {
+      "summary": "export pdf vide pour dossier dos-24029",
+      "description": "conseiller reçoit un pdf vide pour ce dossier, il attend un résultat plus rapide"
+    }
+  ],
+  "F-LENT": [
+    {
+      "summary": "Lenteurs sur l'écran de simulation",
+      "description": "Temps de réponse prolongé sur l'écran de simulation, affectant la performance du système."
+    },
+    {
+      "summary": "Lenteurs sur l'écran de simulation sur Back-office Crédit",
+      "description": "Temps de réponse supérieur à 132 secondes, impactant l'efficacité du processus de simulation."
+    },
+    {
+      "summary": "Lenteurs sur l'ecran de simulation de banque crédit",
+      "description": "L'ecran de simulation prend trop longtemps a finir son processus et cela me rend fou, peut on faire mieux ?"
+    },
+    {
+      "summary": "Lenteurs sur l&#39;écran de simulation du back-office Crédit",
+      "description": "Temps de réponse supérieur à 166 secondes sur l&#39;écran de simulation, impact sur la productivité."
+    },
+    {
+      "summary": "lenteurs sur la simulation de crédit",
+      "description": "problème de ralentissement de la simulation de crédit, trop long temps de réponse, encombrement du serveur, erreur de requête"
+    },
+    {
+      "summary": "Lenteurs sur l&#39;écran de simulation sur Back-office Crédit",
+      "description": "Temps de réponse élevé pour les simulations bancaires, affectant la performance de l&#39;application."
+    },
+    {
+      "summary": "Lenteurs sur l'écran de simulation de simulation",
+      "description": "Temps de réponse de l'écran de simulation supérieur à 13s. Analyse en cours."
+    },
+    {
+      "summary": "Lenteur sur écran de simulation",
+      "description": "Simulation de crédit prenez trop de temps et sont très lentes, je ne peux pas terminer ma tâche sans avoir faim de patience !"
+    },
+    {
+      "summary": "Lenteurs sur l'écran de simulation dans le Back-office Crédit",
+      "description": "Temps de réponse prolongé pour la simulation, affectant la productivité de l' equipo de maintenance."
+    },
+    {
+      "summary": "lenteur sur l'écran de simulation de crédit",
+      "description": "temps de réponse supérieur à 9 secondes, impossible de simuler des opérations"
+    },
+    {
+      "summary": "Lenteurs sur l'écran de simulation de credits",
+      "description": "Temps de réponse suppièré à 71 secondes sur l'écran de simulation, cause non connue, en attente des preuves"
+    },
+    {
+      "summary": "Lenteurs sur simulation Crédit",
+      "description": "Temps de réponse excessive (222s+) sur l&#39;écran de simulation, impactant la performance."
+    },
+    {
+      "summary": "Simulation en retard",
+      "description": "Pas de réaction sur la simulation, attendu 81 secondes"
+    },
+    {
+      "summary": "Lenteurs sur l'écran de simulation du back-office Crédit",
+      "description": "Problème de performance détecté sur l'écran de simulation du back-office Crédit"
+    },
+    {
+      "summary": "lenteur sur écran de simulation avec temps de réponse élevé",
+      "description": "problème de simulation qui prend plus de 167 secondes à terminer, cela ralentit beaucoup l'interface utilisateur"
+    }
+  ],
+  "F-DROITS": [
+    {
+      "summary": "Ouverture de droits CONSULTATION pour l'utilisateur",
+      "description": "Demande d'aide pour consulter des informations bancaires confidentielles"
+    },
+    {
+      "summary": "Ouverture droits CLI-5349",
+      "description": "Demande de validation des droits pour l'utilisateur CLI-5349, permettant accès à la fonctionnalité Espace Conseiller."
+    },
+    {
+      "summary": "Demande d'ouverture des droits de consultation pour un utilisateur spécifique",
+      "description": "Problème avec l'accès aux droits de consultation pour l'utilisateur CLI-6139, il ne peut pas accéder à certaines fonctionnalités."
+    },
+    {
+      "summary": "Ouverture des droits ADMIN_AGENCE pour utilisateur",
+      "description": "Demande d'ouverture des droits ADMIN_AGENCE pour l'utilisateur CLI-5173, sans motif précis"
+    },
+    {
+      "summary": "ouverture droits utilisateur validtion",
+      "description": "demande de validtion des droits pour l'utilisateur cli-4228. merci de les ouvrir immédiatement."
+    },
+    {
+      "summary": "Ouverture droits admin agency pour conseiller bancaire",
+      "description": "Demander l'ouverture des droits ADMIN_AGENCE pour le conseiller bancaire CLI-6143"
+    },
+    {
+      "summary": "Ouverture droits ADMIN_AGENCE pour utilisateur CLI-6067",
+      "description": "Demande de modification des droits de l'utilisateur pour permettre l'accès à l'ADMIN_AGENCE, en raison d'une modification de l'architecture de l'application."
+    },
+    {
+      "summary": "Ouverture droits Admin pour utilisateur CLI-5844",
+      "description": "Problème de connexion, nécessite des droits Admin pour l'agence"
+    },
+    {
+      "summary": "Ouvrir droits pour utilisateur CLI-7211",
+      "description": "Réalisation d'un changement sur l'espace conseiller"
+    },
+    {
+      "summary": "demande d'ouverture des droits consultation pour utilisateur cli-7653",
+      "description": "urgence : utilisateur attend des droits de consultation pour son compte"
+    },
+    {
+      "summary": "Ouverture des droits CLI-8043",
+      "description": "Demande de validation des droits pour l'accès aux fonctionnalités de l'Espace Conseiller."
+    },
+    {
+      "summary": "Ouverture droits ADMIN_AGENCE",
+      "description": "Raccourcir droits pour le compte CLI-4501, permettre l'accès admin."
+    },
+    {
+      "summary": "Problème de droits pour utilisateur admin",
+      "description": "S'agit de l'ouverture des droits pour le conseiller bancaire, pour pouvoir gérer les opérations admin."
+    },
+    {
+      "summary": "Ouverture droits consultation pour utilisateur CLI-6085",
+      "description": "Demande d'ouverture des droits pour utiliser l'espace conseiller"
+    },
+    {
+      "summary": "demande ouverture droits admin agence",
+      "description": "oui, s'il vous plaît, ouvrir droits admin agence pour user cli-5011"
+    }
+  ],
+  "F-MDP": [
+    {
+      "summary": "Réinitialisation de mot de passe pour compte CLI-4185",
+      "description": "Demande de réinitialisation de mot de passe pour le compte du client CLI-4185. Le compte est bloqué, nous devons procéder à une réinitialisation pour lui permettre de reconnecter."
+    },
+    {
+      "summary": "Bloqueage compte client CLI-3417 - Réinitialisation mot de passe",
+      "description": "Client CLI-3417 a bloqué son compte en ligne, nécessite réinitialisation mot de passe pour accès"
+    },
+    {
+      "summary": "Bloquage compte client CLI-4585 : réinitialisation de mot de passe",
+      "description": "Client bloqué son compte, besoin de réinitialisation mot de passe immédiatement"
+    },
+    {
+      "summary": "Problème de connexion : Bloquage du compte par le client",
+      "description": "Le client CLI-2988 a bloqué son compte et demande une réinitialisation de mot de passe. Il n'a pas fourni les informations nécessaires à son blocage."
+    },
+    {
+      "summary": "bloqué son compte nécessite réinitialisation mot de passe",
+      "description": "client cli-9702 veut réinitialiser son mot de passe"
+    },
+    {
+      "summary": "Réinitialisation de mot de passe pour compte bloqué",
+      "description": "Demande de réinitialisation de mot de passe pour compte CLI-9270 bloqué, suite à intervention du client."
+    },
+    {
+      "summary": "Bloquage compte - Réinitialisation mot de passe pour CLI-8777",
+      "description": "Client bloque son compte, demande réinitialisation mot de passe pour accès au Portail Client."
+    },
+    {
+      "summary": "Bloque du compte du client CLI-5543",
+      "description": "Problème de connexion impossible, necessite aide pour reinitialiser mot de passe"
+    },
+    {
+      "summary": "Problème de connexion : réinitialisation mot de passe",
+      "description": "Client CLI-8206 bloque son compte, demande aide."
+    },
+    {
+      "summary": "bloqué compte, aide pour réinitialisation de mot de passe",
+      "description": "client cli-6238 a bloqué son compte, a besoin d'aide pour réinitialiser son mot de passe"
+    },
+    {
+      "summary": "Réinitialisation de mot de passe pour compte CLI-7275 bloqué",
+      "description": "Client CLI-7275 a bloqué son compte, nous vous proposons une réinitialisation de mot de passe. Veuillez confirmer votre identité pour poursuivre."
+    },
+    {
+      "summary": "Bloquage compte CLI-7797 : réinitialisation de mot de passe",
+      "description": "Le client a bloqué son compte et demande de réinitialisation du mot de passe pour accès à son portail client."
+    },
+    {
+      "summary": "Problème de connexion avec réinitialisation de mot de passe bloqué",
+      "description": "Le client CLI-2020 ne peut pas se connecter au portail client et demande une aide pour réinitialiser son mot de passe. Il précise que son compte est bloqué."
+    },
+    {
+      "summary": "Problème de blocage compte utilisateur",
+      "description": "Bloqué son compte le client CLI-1320 demande aide pour réinitialiser son mot de passe."
+    },
+    {
+      "summary": "réinitialisation mot de passe bloqué par cli-5892",
+      "description": "nous vous aiderons à réinitialiser votre mot de passe. veuillez confirmer votre identité cli-5892"
+    }
+  ]
+}
