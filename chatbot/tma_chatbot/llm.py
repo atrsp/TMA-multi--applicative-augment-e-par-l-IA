@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 # from openai import OpenAI
 from openai import AzureOpenAI
 
-from tools import TOOLS_SCHEMA
+from tools import TOOLS_SCHEMA, call_tool
 
 ENDPOINT = "https://ai-gateway-imt.azure-api.net/projets-imt/"
 MODEL = "gpt-6-luna"  # C'est ton deployment_name
