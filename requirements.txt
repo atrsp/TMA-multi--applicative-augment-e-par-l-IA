@@ -6,3 +6,8 @@ scikit-learn
 matplotlib
 bertopic
 sentence-transformers
+nltk
+openai
+python-dotenv
+plotly
+ipykernel
