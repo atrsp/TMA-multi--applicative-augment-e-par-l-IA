@@ -8,27 +8,21 @@ import time
 from pathlib import Path
 
 from dotenv import load_dotenv
-from openai import OpenAI
+# from openai import OpenAI
+from openai import AzureOpenAI
 
-endpoint = "https://ai-gateway-imt.azure-api.net/projets-imt/openai/v1/"
- 
-# deployment_name = "gpt-6-luna"
-MODEL = "gpt-6-luna"
-subscription_key = "9502bdcca8614f14877154b9724a7f0b"
+from tools import TOOLS_SCHEMA
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-load_dotenv(PROJECT_ROOT / ".env")
-
-from tools import TOOLS_SCHEMA, call_tool
-
-#MODEL = os.getenv("LLM_MODEL", "qwen2.5:7b")
+ENDPOINT = "https://ai-gateway-imt.azure-api.net/projets-imt/"
+MODEL = "gpt-6-luna"  # C'est ton deployment_name
+SUBSCRIPTION_KEY = "9502bdcca8614f14877154b9724a7f0b"
 MAX_ITERATIONS = int(os.getenv("LLM_MAX_TOOL_ROUNDS", "5"))
-client = OpenAI(
-   base_url=endpoint,
-   api_key=subscription_key,
-   default_query={
-       "subscription-key": subscription_key
-   }
+
+# Utilisation du client officiel Azure OpenAI
+client = AzureOpenAI(
+    api_key=SUBSCRIPTION_KEY,
+    api_version="2024-02-01",  # Ajuste la version si besoin selon ton API Azure
+    azure_endpoint=ENDPOINT,
 )
 SYSTEM_PROMPT = """Tu es l'assistant d'une equipe RUN de TMA. Tu aides a explorer des
 tickets deja analyses et regroupes en familles.
@@ -59,6 +53,7 @@ def chat(history: list[dict]) -> tuple[str, list[dict], float]:
             messages=messages,
             tools=TOOLS_SCHEMA,
             temperature=0.2,
+            reasoning_effort="none",
         )
         message = response.choices[0].message
         if not message.tool_calls:
