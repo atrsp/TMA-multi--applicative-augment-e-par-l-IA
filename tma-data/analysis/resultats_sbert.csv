@@ -1,0 +1,5 @@
+Méthode,ARI,NMI,Groupes,Bruit (%)
+KMeans (k connu),0.805,0.903,8,0
+HDBSCAN (min=10),0.158,0.604,77,11
+HDBSCAN (min=30),0.889,0.936,12,0
+HDBSCAN (min=60),0.862,0.931,8,15

@@ -10,18 +10,26 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 
+endpoint = "https://ai-gateway-imt.azure-api.net/projets-imt/openai/v1/"
+ 
+# deployment_name = "gpt-6-luna"
+MODEL = "gpt-6-luna"
+subscription_key = "9502bdcca8614f14877154b9724a7f0b"
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT_ROOT / ".env")
 
 from tools import TOOLS_SCHEMA, call_tool
 
-MODEL = os.getenv("LLM_MODEL", "qwen2.5:7b")
+#MODEL = os.getenv("LLM_MODEL", "qwen2.5:7b")
 MAX_ITERATIONS = int(os.getenv("LLM_MAX_TOOL_ROUNDS", "5"))
 client = OpenAI(
-    base_url=os.getenv("LLM_BASE_URL", "http://localhost:11434/v1"),
-    api_key=os.getenv("LLM_API_KEY", "ollama"),
+   base_url=endpoint,
+   api_key=subscription_key,
+   default_query={
+       "subscription-key": subscription_key
+   }
 )
-
 SYSTEM_PROMPT = """Tu es l'assistant d'une equipe RUN de TMA. Tu aides a explorer des
 tickets deja analyses et regroupes en familles.
 
