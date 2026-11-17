@@ -8,6 +8,7 @@ Assistant Streamlit de consultation des tickets analyses. Le code applicatif est
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r tma_chatbot/requirements.txt
+pip install plotly
 Copy-Item .env.example .env
 ```
 

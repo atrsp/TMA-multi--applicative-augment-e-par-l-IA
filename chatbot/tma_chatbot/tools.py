@@ -195,6 +195,23 @@ def detail_ticket(id: str) -> dict[str, Any]:
     return row
 
 
+def get_resolved_last_14_days(df: pd.DataFrame) -> pd.DataFrame:
+    # S'assurer que les dates sont au format datetime
+    df['date_ouverture'] = pd.to_datetime(df['date_ouverture'])
+
+    # Filtrer les tickets résolus (ajuste selon la valeur exacte de ton statut, ex: 'Résolu')
+    resolved_df = df[df['statut'].str.casefold().isin(['résolu', 'resolu', 'fermé', 'ferme'])]
+
+    # Définir la fenêtre des 14 derniers jours par rapport à la date max des données ou d'aujourd'hui
+    max_date = df['date_ouverture'].max()
+    start_date = max_date - pd.Timedelta(days=14)
+
+    recent_resolved = resolved_df[resolved_df['date_ouverture'] >= start_date]
+
+    # Grouper par jour et compter
+    daily_counts = recent_resolved.groupby(recent_resolved['date_ouverture'].dt.date).size().reset_index(name='nombre')
+    return daily_counts
+
 FUNCTIONS = {
     function.__name__: function
     for function in (
@@ -205,6 +222,7 @@ FUNCTIONS = {
         tickets_par_famille,
         synthese_hebdo,
         detail_ticket,
+        get_resolved_last_14_days,
     )
 }
 
@@ -244,6 +262,8 @@ TOOLS_SCHEMA = [
     }, ["famille"]),
     _tool("synthese_hebdo", "Synthese de la derniere semaine.", {"application": _APPLICATION}),
     _tool("detail_ticket", "Detail d'un ticket par identifiant.", {"id": {"type": "string"}}, ["id"]),
+    _tool("get_resolved_last_14_days", "Nombre de tickets resolus par jour sur les 14 derniers jours.", {
+        "application": _APPLICATION,}),
 ]
 
 

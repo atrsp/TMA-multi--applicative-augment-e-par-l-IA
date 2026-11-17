@@ -38,6 +38,7 @@ Regles :
 - N'utilise pas d'emojis dans tes reponses.
 - Tes reponses sont des propositions : aucune action n'est executee, la decision revient
   a l'humain.
+- Pour trouver le ticket le plus chronophage, utilise l'outil top_tickets_chronophages avec n=1 et periode='tout'.
 """
 
 
