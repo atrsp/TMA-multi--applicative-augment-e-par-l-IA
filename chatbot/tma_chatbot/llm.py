@@ -38,7 +38,11 @@ Regles :
 - N'utilise pas d'emojis dans tes reponses.
 - Tes reponses sont des propositions : aucune action n'est executee, la decision revient
   a l'humain.
-- Pour trouver le ticket le plus chronophage, utilise l'outil top_tickets_chronophages avec n=1 et periode='tout'.
+- Pour trouver le ticket le plus chronophage, utilise l'outil top_tickets_chronophages avec n
+- Quand l'utilisateur demande de changer l'affichage du graphique (par jour ou par semaine,
+  zoom sur une periode, isoler un type de ticket ou une application, reinitialiser), appelle
+  l'outil modifier_graphique, puis confirme en une phrase ce qui a ete affiche. Si l'outil
+  renvoie une erreur, corrige les parametres d'apres les valeurs disponibles et reessaie.=1 et periode='tout'.
 """
 
 
