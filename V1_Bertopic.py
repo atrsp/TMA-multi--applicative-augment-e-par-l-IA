@@ -45,7 +45,11 @@ umap_model = UMAP(n_neighbors=25, n_components=5, min_dist=0.0, metric="cosine",
 embedding_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 model = BERTopic(embedding_model=embedding_model, vectorizer_model=vectorizer, umap_model=umap_model, min_topic_size=10)
 
-topics, _ = model.fit_transform(X_list)
+embeddings = embedding_model.encode(X_list, show_progress_bar=False)
+topics, _ = model.fit_transform(X_list, embeddings)
+
+topics_final = model.reduce_outliers(X_list, topics, strategy="embeddings", embeddings=embeddings)
+model.update_topics(X_list, topics=topics_final, vectorizer_model=vectorizer)
 
 
 # %% Exploration
@@ -61,6 +65,9 @@ NMI = normalized_mutual_info_score(y, topics)
 
 print(f"ARI : {ARI:.2f}")
 print(f"NMI : {NMI:.2f}")
+
+print(f"ARI après reduce_outliers : {adjusted_rand_score(y, topics_final):.2f}")
+print(f"NMI après reduce_outliers : {normalized_mutual_info_score(y, topics_final):.2f}")
 
 #Sans le bruit
 topics_tab = np.array(topics)
@@ -99,6 +106,7 @@ Donne un nom court (5 mots maximum, en français) qui décrit le problème commu
 Réponds uniquement par le nom."""
 
 noms = {}
+actions = {}
 for topic in model.get_topic_info()["Topic"]:
     if topic == -1:
         continue
@@ -108,16 +116,62 @@ for topic in model.get_topic_info()["Topic"]:
     message = f"""Voici des tickets d'incidents informatiques d'une banque :
 {exemples}
 Mots-clés du groupe : {mots_cles}
-Donne un nom court (5 mots maximum, en français) qui décrit le problème commun à ces tickets.
-Réponds uniquement par le nom."""
+Réponds sur une seule ligne, au format exact :
+nom court du problème (5 mots maximum) | action corrective concrète (15 mots maximum)"""
 
     reponse = client.chat.completions.create(
         model=os.getenv("deployment_name"),
         messages=[{"role": "user", "content": message}],
     )
-    noms[topic] = reponse.choices[0].message.content.strip()
+    texte = reponse.choices[0].message.content.strip()
+    nom, _, action = texte.partition("|")
+    noms[topic] = nom.strip()
+    actions[topic] = action.strip()
 
 model.set_topic_labels(noms)
 print(model.get_topic_info()[["Topic", "Count", "CustomName", "Representation"]])
 
-# %%
+# %% Export pour le tableau de bord
+from pathlib import Path
+
+DOSSIER = Path("chatbot/data")
+PART_EVITABLE = 0.5  # hypothèse : la moitié des tickets d'un groupe serait évitée par l'action
+
+resultats = tickets_data[["identifiant", "date_creation", "titre", "domaine_metier", "application", "categorie_technique"]].copy()
+resultats["date_creation"] = pd.to_datetime(resultats["date_creation"], utc=True)
+resultats["groupe"] = topics_final
+resultats["nom_groupe"] = resultats["groupe"].map(noms).fillna("À examiner")
+resultats.to_csv(DOSSIER / "clusters_tickets.csv", index=False)
+
+fin = resultats["date_creation"].max()
+recent = resultats[resultats["date_creation"] > fin - pd.Timedelta(days=30)]
+avant = resultats[(resultats["date_creation"] <= fin - pd.Timedelta(days=30)) & (resultats["date_creation"] > fin - pd.Timedelta(days=60))]
+nb_mois = (fin - resultats["date_creation"].min()).days / 30
+
+def evolution(groupe):
+    n_recent = (recent["groupe"] == groupe).sum()
+    n_avant = (avant["groupe"] == groupe).sum()
+    if n_avant == 0:
+        return "▲ nouveau" if n_recent > 0 else "▶ stable"
+    variation = (n_recent - n_avant) / n_avant * 100
+    if variation > 10:
+        return f"▲ +{variation:.0f} %"
+    if variation < -10:
+        return f"▼ {variation:.0f} %"
+    return "▶ stable"
+
+lignes = []
+for groupe, nom in noms.items():
+    nb = (resultats["groupe"] == groupe).sum()
+    gain = round(nb / nb_mois * PART_EVITABLE)
+    lignes.append({
+        "Problème récurrent": nom,
+        "Tickets": nb,
+        "Évolution": evolution(groupe),
+        "Action suggérée": actions[groupe],
+        "Gain estimé": f"≈ {gain} tickets/mois",
+    })
+
+groupes = pd.DataFrame(lignes).sort_values("Tickets", ascending=False)
+groupes.to_csv(DOSSIER / "clusters_groupes.csv", index=False)
+print(groupes)
