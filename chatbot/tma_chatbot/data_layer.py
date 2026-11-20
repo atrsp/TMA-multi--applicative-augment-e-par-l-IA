@@ -324,62 +324,99 @@ def calculer_kpis_tma(df: pd.DataFrame) -> dict:
         "charge": {"valeur": charge_p1, "evolution": ev_charge}, # ex: en heures totales
     }
 
-def get_resolved_tickets_by_period(df: pd.DataFrame, periode: str = "2 semaines") -> pd.DataFrame:
-    """Retourne le nombre de tickets résolus par jour selon la période choisie."""
-    if df.empty:
-        return pd.DataFrame(columns=["date_str", "nombre"])
+STATUTS_RESOLUS = {"résolu", "resolu", "fermé", "ferme", "closed", "resolved"}
+JOURS_PAR_PERIODE = {
+    "1 semaine": 7,
+    "2 semaines": 14,
+    "1 mois": 30,
+}
+COLONNES_SORTIE = ["date_str", "nombre"]
 
-    df = df.copy()
-    df["date_ouverture"] = pd.to_datetime(df["date_ouverture"], errors="coerce")
 
-    # Filtrer les tickets résolus
-    resolved_df = df[
-        df["statut"]
-        .astype(str)
-        .str.casefold()
-        .isin(["résolu", "resolu", "fermé", "ferme", "closed", "resolved"])
-    ].dropna(subset=["date_ouverture"])
+def _filtrer_tickets_resolus(df: pd.DataFrame) -> pd.DataFrame:
+    """Retourne les lignes résolues avec une date d'ouverture valide et sans fuseau."""
+    if "date_ouverture" not in df.columns or "statut" not in df.columns:
+        return pd.DataFrame()
 
+    data = df.copy()
+    data["date_ouverture"] = pd.to_datetime(
+        data["date_ouverture"], errors="coerce", utc=True
+    ).dt.tz_localize(None)
+
+    est_resolu = data["statut"].astype(str).str.strip().str.casefold().isin(STATUTS_RESOLUS)
+    return data[est_resolu].dropna(subset=["date_ouverture"])
+
+
+def _filtrer_fenetre_temporelle(
+    resolved_df: pd.DataFrame,
+    all_dates: pd.Series,
+    periode: str,
+    date_debut: str | pd.Timestamp | None = None,
+    date_fin: str | pd.Timestamp | None = None,
+) -> pd.DataFrame:
+    """Filtre les tickets résolus selon une plage explicite ou une période relative."""
+    debut_dt = pd.to_datetime(date_debut, errors="coerce") if date_debut else pd.NaT
+    fin_dt = pd.to_datetime(date_fin, errors="coerce") if date_fin else pd.NaT
+
+    if not pd.isna(debut_dt) or not pd.isna(fin_dt):
+        masque = pd.Series(True, index=resolved_df.index)
+        if not pd.isna(debut_dt):
+            masque &= resolved_df["date_ouverture"] >= debut_dt.normalize()
+        if not pd.isna(fin_dt):
+            fin_borne = fin_dt.normalize() + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)
+            masque &= resolved_df["date_ouverture"] <= fin_borne
+        return resolved_df[masque]
+
+    nb_jours = JOURS_PAR_PERIODE.get(periode)
+    if nb_jours is None:
+        return resolved_df
+
+    date_ref = all_dates.dropna().max()
+    if pd.isna(date_ref):
+        date_ref = pd.Timestamp.now().normalize()
+
+    date_debut_fenetre = (date_ref - pd.Timedelta(days=nb_jours - 1)).normalize()
+    return resolved_df[resolved_df["date_ouverture"] >= date_debut_fenetre]
+
+
+def get_resolved_tickets_by_period(
+    df: pd.DataFrame,
+    periode: str = "2 semaines",
+    date_debut: str | pd.Timestamp | None = None,
+    date_fin: str | pd.Timestamp | None = None,
+) -> pd.DataFrame:
+    """Retourne le nombre de tickets résolus par jour sur une période ou une plage donnée."""
+    if df is None or df.empty:
+        return pd.DataFrame(columns=COLONNES_SORTIE)
+
+    resolved_df = _filtrer_tickets_resolus(df)
     if resolved_df.empty:
-        return pd.DataFrame(columns=["date_str", "nombre"])
+        return pd.DataFrame(columns=COLONNES_SORTIE)
 
-    # Fenêtre temporelle selon la période sélectionnée
-    max_date = df["date_ouverture"].max()
-    if pd.isna(max_date):
-        max_date = pd.Timestamp.now()
-
-    jours_map = {
-        "1 semaine": 7,
-        "2 semaines": 14,
-        "1 mois": 30,
-    }
-
-    if periode in jours_map:
-        nb_jours = jours_map[periode]
-        start_date = max_date - pd.Timedelta(days=nb_jours - 1)
-        filtered = resolved_df[resolved_df["date_ouverture"] >= start_date]
-    else:
-        # "Tout" (ou "Plus")
-        filtered = resolved_df
-
+    all_dates = pd.to_datetime(df["date_ouverture"], errors="coerce", utc=True).dt.tz_localize(None)
+    filtered = _filtrer_fenetre_temporelle(
+        resolved_df,
+        all_dates=all_dates,
+        periode=periode,
+        date_debut=date_debut,
+        date_fin=date_fin,
+    )
     if filtered.empty:
-        return pd.DataFrame(columns=["date_str", "nombre"])
-
-    filtered = filtered.copy()
-    filtered["date_str"] = filtered["date_ouverture"].dt.strftime("%Y-%m-%d")
+        return pd.DataFrame(columns=COLONNES_SORTIE)
 
     daily = (
-        filtered.groupby("date_str")
+        filtered.assign(date_str=filtered["date_ouverture"].dt.strftime("%Y-%m-%d"))
+        .groupby("date_str", as_index=False)
         .size()
-        .reset_index(name="nombre")
+        .rename(columns={"size": "nombre"})
         .sort_values("date_str")
     )
 
-    # Si "Tout" contient énormément de jours, on limite aux 60 derniers jours actifs pour garder le graphique lisible
-    if periode not in jours_map:
+    plage_explicite = bool(date_debut or date_fin)
+    if not plage_explicite and periode not in JOURS_PAR_PERIODE:
         daily = daily.tail(60)
 
-    return daily
+    return daily[COLONNES_SORTIE].reset_index(drop=True)
 
 def get_operational_alerts(df: pd.DataFrame) -> list[dict]:
     """Analyse le DataFrame et retourne une liste de dictionnaires d'alertes."""
