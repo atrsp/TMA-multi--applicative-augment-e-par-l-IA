@@ -212,6 +212,7 @@ def get_resolved_last_14_days(df: pd.DataFrame) -> pd.DataFrame:
     daily_counts = recent_resolved.groupby(recent_resolved['date_ouverture'].dt.date).size().reset_index(name='nombre')
     return daily_counts
 
+
 FUNCTIONS = {
     function.__name__: function
     for function in (
