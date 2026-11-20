@@ -128,7 +128,7 @@ from llm import MODEL, chat
 from data_layer import load_tickets, calculer_kpis_tma  # <--- On importe la fonction
 
 import plotly.express as px
-from data_layer import get_resolved_last_14_days
+from data_layer import get_resolved_tickets_by_period
 from data_layer import get_operational_alerts
 
 
@@ -180,6 +180,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+OPTIONS_PERIODE = ["1 semaine", "2 semaines", "1 mois", "Tout"]
 
 # =====================================================================
 # METTRE LA PARTIE 3 EN COMMENTAIRE SI ON VEUT SUPPRIMER LA BARRE DE NAVIGATION
@@ -250,34 +251,65 @@ with col_dashboard:
     col_graphe, col_alertes = st.columns([2, 1])
     
     with col_graphe:
-        # Récupération des données pour le graphique
-        df_graph = get_resolved_last_14_days(df)
+
+        if "chart_range" not in st.session_state:
+            st.session_state["chart_range"] = {"mode": "relative", "periode": "2 semaines", "date_debut": None, "date_fin": None}
+
+        def _on_periode_change():
+            st.session_state["chart_periode"] = st.session_state["chart_periode_widget"]
+            st.session_state["chart_range"] = {
+                "mode": "relative",
+                "periode": st.session_state["chart_periode_widget"],
+                "date_debut": None,
+                "date_fin": None,
+            }
+
+        periode_choisie = st.segmented_control(
+            "Période de résolution",
+            options=OPTIONS_PERIODE,
+            key="chart_periode_widget",
+            on_change=_on_periode_change,
+            label_visibility="collapsed",
+        ) or st.session_state.get("chart_periode", "2 semaines")
+
+        chart_range = st.session_state["chart_range"]
+
+        if chart_range.get("mode") == "custom":
+            d1 = chart_range.get("date_debut")
+            d2 = chart_range.get("date_fin")
+            df_graph = get_resolved_tickets_by_period(df, date_debut=d1, date_fin=d2)
+            titre_graph = f"Tickets résolus par jour ({d1 or '...'} → {d2 or '...'})"
+        else:
+            df_graph = get_resolved_tickets_by_period(df, periode=periode_choisie)
+            titre_graph = f"Tickets résolus par jour ({periode_choisie})"
 
         if not df_graph.empty:
-            # Création du graphique Plotly (style épuré et moderne)
             fig = px.bar(
                 df_graph,
                 x="date_str",
                 y="nombre",
-                title="Tickets résolus par jour (14 derniers jours)",
+                title=f"Tickets résolus par jour ({periode_choisie})",
                 labels={"date_str": "Date", "nombre": "Tickets résolus"},
-                text="nombre"
+                text="nombre",
             )
-            
-            # Personnalisation du design pour s'intégrer au tableau de bord
+
+            max_val = df_graph["nombre"].max() if not df_graph.empty else 0
             fig.update_traces(textposition="outside", marker_color="#2b5c8f")
             fig.update_layout(
                 xaxis_title="",
                 yaxis_title="",
-                margin=dict(l=20, r=20, t=40, b=20),
-                height=280,  # Ajuste la hauteur selon ton conteneur
-                xaxis=dict(tickangle=-30)
+                margin=dict(l=10, r=10, t=30, b=10),
+                height=250,
+                xaxis=dict(tickangle=-30),
+                yaxis=dict(range=[0, max(1, max_val * 1.25)]),
             )
-            
-            # Affichage dans Streamlit
-            st.plotly_chart(fig, use_container_width=True)
+
+            st.plotly_chart(fig, width="stretch")
         else:
-            st.info("Aucune donnée de résolution disponible sur les 14 derniers jours.")
+            st.info(f"Aucune donnée de résolution disponible sur la période « {periode_choisie} ».")
+            
+            # # Affichage dans Streamlit
+            # st.plotly_chart(fig, use_container_width=True)
 
         with col_alertes:
             st.subheader("🚨 Alertes et Points Opérationnels")

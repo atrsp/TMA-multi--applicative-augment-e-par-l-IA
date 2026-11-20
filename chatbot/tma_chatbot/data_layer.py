@@ -324,29 +324,61 @@ def calculer_kpis_tma(df: pd.DataFrame) -> dict:
         "charge": {"valeur": charge_p1, "evolution": ev_charge}, # ex: en heures totales
     }
 
-def get_resolved_last_14_days(df: pd.DataFrame) -> pd.DataFrame:
-    """Retourne le nombre de tickets résolus par jour sur les 14 derniers jours."""
+def get_resolved_tickets_by_period(df: pd.DataFrame, periode: str = "2 semaines") -> pd.DataFrame:
+    """Retourne le nombre de tickets résolus par jour selon la période choisie."""
     if df.empty:
         return pd.DataFrame(columns=["date_str", "nombre"])
 
     df = df.copy()
     df["date_ouverture"] = pd.to_datetime(df["date_ouverture"], errors="coerce")
-    
+
     # Filtrer les tickets résolus
-    resolved_df = df[df["statut"].str.casefold().isin(["résolu", "resolu", "fermé", "ferme", "closed", "resolved"])]
-    
+    resolved_df = df[
+        df["statut"]
+        .astype(str)
+        .str.casefold()
+        .isin(["résolu", "resolu", "fermé", "ferme", "closed", "resolved"])
+    ].dropna(subset=["date_ouverture"])
+
     if resolved_df.empty:
         return pd.DataFrame(columns=["date_str", "nombre"])
 
-    # On extrait la date sous forme de chaîne directement
-    resolved_df["date_str"] = resolved_df["date_ouverture"].dt.strftime("%Y-%m-%d")
-    
-    # On groupe par date
-    daily = resolved_df.groupby("date_str").size().reset_index(name="nombre")
-    
-    # On trie par date
-    daily = daily.sort_values("date_str").tail(14)
-    
+    # Fenêtre temporelle selon la période sélectionnée
+    max_date = df["date_ouverture"].max()
+    if pd.isna(max_date):
+        max_date = pd.Timestamp.now()
+
+    jours_map = {
+        "1 semaine": 7,
+        "2 semaines": 14,
+        "1 mois": 30,
+    }
+
+    if periode in jours_map:
+        nb_jours = jours_map[periode]
+        start_date = max_date - pd.Timedelta(days=nb_jours - 1)
+        filtered = resolved_df[resolved_df["date_ouverture"] >= start_date]
+    else:
+        # "Tout" (ou "Plus")
+        filtered = resolved_df
+
+    if filtered.empty:
+        return pd.DataFrame(columns=["date_str", "nombre"])
+
+    filtered = filtered.copy()
+    filtered["date_str"] = filtered["date_ouverture"].dt.strftime("%Y-%m-%d")
+
+    daily = (
+        filtered.groupby("date_str")
+        .size()
+        .reset_index(name="nombre")
+        .sort_values("date_str")
+    )
+
+    # Si "Tout" contient énormément de jours, on limite aux 60 derniers jours actifs pour garder le graphique lisible
+    if periode not in jours_map:
+        daily = daily.tail(60)
+
     return daily
 
 def get_operational_alerts(df: pd.DataFrame) -> list[dict]:
