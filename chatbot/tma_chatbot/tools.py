@@ -212,6 +212,72 @@ def get_resolved_last_14_days(df: pd.DataFrame) -> pd.DataFrame:
     daily_counts = recent_resolved.groupby(recent_resolved['date_ouverture'].dt.date).size().reset_index(name='nombre')
     return daily_counts
 
+def modifier_graphique(
+    granularite: str | None = None,
+    debut: str | None = None,
+    fin: str | None = None,
+    type: str | None = None,
+    application: str | None = None,
+    reset: bool = False,
+) -> dict[str, Any]:
+    """Valide une demande de modification du graphique 'tickets resolus' du tableau de bord.
+    Ne modifie rien elle-meme : l'application lit le resultat et met le graphique a jour."""
+    df = _tickets()
+    dates = df["date_ouverture"].dropna()
+    types = sorted(df["type"].dropna().astype(str).unique().tolist())
+    apps = sorted(df["application"].dropna().astype(str).unique().tolist())
+    info = {
+        "periode_donnees": (
+            f"{dates.min():%Y-%m-%d} au {dates.max():%Y-%m-%d}" if not dates.empty else "aucune"
+        ),
+        "types_disponibles": types,
+        "applications_disponibles": apps,
+    }
+
+    if reset:
+        return {"ok": True, "commande": {"reset": True}, **info}
+
+    commande: dict[str, Any] = {}
+    erreurs: list[str] = []
+
+    if granularite is not None:
+        if granularite not in ("jour", "semaine"):
+            erreurs.append("granularite doit etre 'jour' ou 'semaine'")
+        else:
+            commande["granularite"] = granularite
+
+    bornes = {}
+    for nom, valeur in (("debut", debut), ("fin", fin)):
+        if valeur:
+            try:
+                bornes[nom] = pd.Timestamp(valeur).tz_localize(None).normalize()
+                commande[nom] = f"{bornes[nom]:%Y-%m-%d}"
+            except (ValueError, TypeError):
+                erreurs.append(f"date invalide pour {nom} : {valeur} (format AAAA-MM-JJ)")
+    if not dates.empty:
+        dmin = dates.min().tz_localize(None).normalize() if dates.min().tzinfo else dates.min().normalize()
+        dmax = dates.max().tz_localize(None).normalize() if dates.max().tzinfo else dates.max().normalize()
+        if ("fin" in bornes and bornes["fin"] < dmin) or ("debut" in bornes and bornes["debut"] > dmax):
+            erreurs.append("periode hors des donnees disponibles (verifie l'annee)")
+    if "debut" in bornes and "fin" in bornes and bornes["debut"] > bornes["fin"]:
+        erreurs.append("debut posterieur a fin")
+
+    for nom, valeur, valides in (("type", type, types), ("application", application, apps)):
+        if valeur:
+            if str(valeur).casefold() == "tous":
+                commande[nom] = "tous"
+            else:
+                trouve = next((v for v in valides if v.casefold() == str(valeur).casefold()), None)
+                if trouve is None:
+                    erreurs.append(f"{nom} inconnu : {valeur}")
+                else:
+                    commande[nom] = trouve
+
+    if erreurs:
+        return {"erreur": " ; ".join(erreurs), **info}
+    if not commande:
+        return {"erreur": "aucun parametre fourni", **info}
+    return {"ok": True, "commande": commande, **info}
 
 FUNCTIONS = {
     function.__name__: function
@@ -245,6 +311,21 @@ def _tool(
 
 
 TOOLS_SCHEMA = [
+        _tool(
+        "modifier_graphique",
+        "Modifie le graphique des tickets resolus du tableau de bord : affichage par jour ou "
+        "par semaine, zoom sur une periode, filtre sur un type de ticket ou une application, "
+        "ou reinitialisation. Pour zoomer sur une semaine, donne le lundi en debut et le "
+        "dimanche en fin. Utilise 'tous' pour retirer un filtre.",
+        {
+            "granularite": {"type": "string", "enum": ["jour", "semaine"]},
+            "debut": {"type": "string", "description": "Date AAAA-MM-JJ (optionnel)."},
+            "fin": {"type": "string", "description": "Date AAAA-MM-JJ (optionnel)."},
+            "type": {"type": "string", "description": "Type de ticket a isoler, ou 'tous'."},
+            "application": {"type": "string", "description": "Application a isoler, ou 'tous'."},
+            "reset": {"type": "boolean", "description": "Remet le graphique par defaut."},
+        },
+    ),
     _tool("top_tickets_chronophages", "Tickets ayant consomme le plus de temps.", {
         "n": {"type": "integer"}, "periode": _PERIODE, "application": _APPLICATION,
     }),

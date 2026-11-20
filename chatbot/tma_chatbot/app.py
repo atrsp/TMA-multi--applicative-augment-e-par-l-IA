@@ -122,47 +122,282 @@
 
 from pathlib import Path
 
-import streamlit as st
 import pandas as pd
-from llm import MODEL, chat
-from data_layer import load_tickets, calculer_kpis_tma  # <--- On importe la fonction
-
 import plotly.express as px
 from data_layer import get_resolved_tickets_by_period
 from data_layer import get_operational_alerts
+import streamlit as st
 
+from llm import MODEL, chat
+from data_layer import load_tickets, calculer_kpis_tma, get_operational_alerts
 
-st.markdown("""
-    <style>
-    /* Réduit l'espace vide sous les graphiques Plotly et les conteneurs */
-    .stPlotlyChart {
-        margin-bottom: -15px !important;
-    }
-    div[data-testid="stVerticalBlock"] > div {
-        margin-bottom: -5px !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-
-
-# 1. Configuration de la page en mode "wide"
+# 1. Configuration de la page : doit être la première commande Streamlit
 st.set_page_config(page_title="TMA Insight", layout="wide")
 
-# 2. CSS global pour bloquer le scroll de la page et descendre le titre de l'assistant
+OPTIONS_PERIODE = ["1 semaine", "2 semaines", "1 mois", "Tout"]
+
+STATUTS_RESOLUS = ["résolu", "resolu", "fermé", "ferme", "closed", "resolved"]
+
+# =====================================================================
+# ONGLET TICKETS : lecture de clusters_tickets.csv
+# =====================================================================
+CHEMIN_TICKETS = Path(__file__).resolve().parent.parent / "data" / "clusters_tickets.csv"
+
+# libellé affiché -> colonne du CSV
+OPTIONS_TRI = {
+    "Date d'apparition": "date_creation",
+    "Catégorie technique": "categorie_technique",
+    "Nom du groupe": "nom_groupe",
+}
+HAUTEUR_TABLEAU_TICKETS = 480
+
+# =====================================================================
+# ÉTAT DU GRAPHIQUE (piloté par le chatbot via l'outil modifier_graphique)
+# =====================================================================
+ETAT_DEFAUT = {"granularite": "jour", "debut": None, "fin": None, "type": None, "application": None}
+
+if "chart_etat" not in st.session_state:
+    st.session_state.chart_etat = dict(ETAT_DEFAUT)
+
+
+def appliquer_commande(cmd: dict) -> None:
+    """Applique la commande normalisée renvoyée par l'outil modifier_graphique."""
+    if cmd.get("reset"):
+        st.session_state.chart_etat = dict(ETAT_DEFAUT)
+        return
+    etat = st.session_state.chart_etat
+    for cle in ("granularite", "debut", "fin"):
+        if cle in cmd:
+            etat[cle] = cmd[cle]
+    for cle in ("type", "application"):
+        if cle in cmd:
+            etat[cle] = None if cmd[cle] == "tous" else cmd[cle]
+
+
+def construire_donnees_graphe(df: pd.DataFrame, etat: dict) -> pd.DataFrame:
+    """Compte les tickets résolus selon l'état (jour/semaine, période, type, application)."""
+    d = df.copy()
+    d = d[d["statut"].astype(str).str.casefold().isin(STATUTS_RESOLUS)]
+    d["_d"] = pd.to_datetime(d["date_ouverture"], errors="coerce", utc=True).dt.tz_localize(None)
+    d = d.dropna(subset=["_d"])
+    if d.empty:
+        return pd.DataFrame(columns=["label", "nombre"])
+
+    date_max = d["_d"].max().normalize()
+
+    if etat["type"]:
+        d = d[d["type"].astype(str).str.casefold() == etat["type"].casefold()]
+    if etat["application"]:
+        d = d[d["application"].astype(str).str.casefold() == etat["application"].casefold()]
+
+    fin = pd.Timestamp(etat["fin"]).normalize() if etat["fin"] else date_max
+    if etat["debut"]:
+        debut = pd.Timestamp(etat["debut"]).normalize()
+    elif etat["granularite"] == "semaine":
+        debut = fin - pd.Timedelta(weeks=11)   # 12 semaines par défaut
+    else:
+        debut = fin - pd.Timedelta(days=13)    # 14 jours par défaut
+
+    jours = d["_d"].dt.normalize()
+    d = d[(jours >= debut) & (jours <= fin)]
+
+    if etat["granularite"] == "semaine":
+        debut_sem = debut - pd.Timedelta(days=debut.weekday())
+        index = pd.date_range(debut_sem, fin, freq="7D")
+        periode = d["_d"].dt.normalize() - pd.to_timedelta(d["_d"].dt.weekday, unit="D")
+        labels = [f"Sem. {x:%d/%m}" for x in index]
+    else:
+        index = pd.date_range(debut, fin, freq="D")
+        periode = d["_d"].dt.normalize()
+        labels = [f"{x:%d/%m}" for x in index]
+
+    comptes = periode.value_counts().reindex(index, fill_value=0).sort_index()
+    return pd.DataFrame({"label": labels, "nombre": comptes.values})
+
+
+def titre_graphe(etat: dict) -> str:
+    unite = "semaine" if etat["granularite"] == "semaine" else "jour"
+    titre = f"Tickets résolus par {unite}"
+    if etat["type"]:
+        titre += f" • {etat['type']}"
+    if etat["application"]:
+        titre += f" • {etat['application']}"
+    if etat["debut"] or etat["fin"]:
+        titre += f" • {etat['debut'] or '…'} → {etat['fin'] or '…'}"
+    return titre
+
+
+# =====================================================================
+# VUE : ONGLET TICKETS
+# =====================================================================
+@st.cache_data
+def charger_tickets_clusters(chemin: str) -> pd.DataFrame:
+    """Charge clusters_tickets.csv et convertit la date (le fuseau +00:00 est retiré)."""
+    t = pd.read_csv(chemin, encoding="utf-8-sig")
+    t["date_creation"] = pd.to_datetime(
+        t["date_creation"], errors="coerce", utc=True
+    ).dt.tz_localize(None)
+    return t
+
+
+def afficher_tickets() -> None:
+    st.title("Tickets")
+
+    if not CHEMIN_TICKETS.exists():
+        st.info(f"Fichier introuvable : {CHEMIN_TICKETS}")
+        return
+
+    t = charger_tickets_clusters(str(CHEMIN_TICKETS))
+
+    c1, c2, c3 = st.columns([2, 2, 3])
+    with c1:
+        choix = st.selectbox("Trier par", list(OPTIONS_TRI.keys()), key="tickets_tri")
+    with c2:
+        ordre = st.radio("Ordre", ["Croissant", "Décroissant"], horizontal=True, key="tickets_ordre")
+    colonne_tri = OPTIONS_TRI[choix]
+    with c3:
+        st.caption(f"{len(t)} tickets • tri sur « {colonne_tri} »")
+
+    tri = t.sort_values(
+        colonne_tri,
+        ascending=(ordre == "Croissant"),
+        na_position="last",
+        kind="stable",
+    )
+
+    affichage = tri.copy()
+    affichage["date_creation"] = affichage["date_creation"].dt.strftime("%Y-%m-%d %H:%M")
+
+    st.dataframe(
+        affichage,
+        use_container_width=True,
+        hide_index=True,
+        height=HAUTEUR_TABLEAU_TICKETS,
+    )
+
+
+# =====================================================================
+# VUE : VUE D'ENSEMBLE
+# =====================================================================
+def afficher_vue_ensemble(df: pd.DataFrame) -> None:
+    st.title("Vue d'ensemble du RUN")
+    st.caption("Du 27 juillet au 15 octobre 2026 • 6 applications • 315 tickets analysés")
+
+    # --- KPIs ---
+    kpis = calculer_kpis_tma(df)
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric(
+            label="Tickets Reçus (30j)",
+            value=kpis.get("recus", {}).get("valeur", 0),
+            delta=f"{kpis.get('recus', {}).get('evolution', 0)}% vs N-1",
+        )
+    with col2:
+        st.metric(
+            label="Tickets Résolus (30j)",
+            value=kpis.get("resolus", {}).get("valeur", 0),
+            delta=f"{kpis.get('resolus', {}).get('evolution', 0)}% vs N-1",
+        )
+    with col3:
+        st.metric(
+            label="Temps Moyen (MTTR)",
+            value=f"{kpis.get('mttr', {}).get('valeur', 0)}h",
+            delta=f"{kpis.get('mttr', {}).get('evolution', 0)}% vs N-1",
+        )
+    with col4:
+        st.metric(
+            label="Charge Consommée",
+            value=f"{kpis.get('charge', {}).get('valeur', 0)}h",
+            delta=f"{kpis.get('charge', {}).get('evolution', 0)}% vs N-1",
+        )
+
+    st.markdown("---")
+
+    # --- Section centrale : Graphique et Alertes ---
+    col_graphe, col_alertes = st.columns([2, 1])
+
+    with col_graphe:
+        etat = st.session_state.chart_etat
+        df_graph = construire_donnees_graphe(df, etat)
+
+        if not df_graph.empty and df_graph["nombre"].sum() > 0:
+            fig = px.bar(
+                df_graph,
+                x="label",
+                y="nombre",
+                title=titre_graphe(etat),
+                labels={"label": "Période", "nombre": "Tickets résolus"},
+                text="nombre",
+            )
+            fig.update_traces(textposition="outside", marker_color="#2b5c8f")
+            fig.update_layout(
+                xaxis_title="",
+                yaxis_title="",
+                margin=dict(l=20, r=20, t=40, b=20),
+                height=280,
+                title_font_size=14,
+                xaxis=dict(tickangle=-30, type="category"),
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.info("Aucun ticket pour cette sélection. Demandez à l'assistant de réinitialiser le graphique.")
+
+        if etat != ETAT_DEFAUT:
+            if st.button("↺ Réinitialiser le graphique", key="reset_graphe"):
+                st.session_state.chart_etat = dict(ETAT_DEFAUT)
+                st.rerun()
+
+    with col_alertes:
+        st.subheader("🚨 Alertes et Points Opérationnels")
+
+        alerts_list = get_operational_alerts(df)
+
+        if alerts_list:
+            with st.container(height=150):
+                for alert in alerts_list:
+                    niveau = alert.get("niveau")
+                    titre = alert.get("titre")
+                    msg = alert.get("message")
+
+                    if niveau == "error":
+                        st.error(f"**{titre}** : {msg}", icon="🚨")
+                    elif niveau == "warning":
+                        st.warning(f"**{titre}** : {msg}", icon="⚠️")
+                    else:
+                        st.info(f"**{titre}** : {msg}", icon="ℹ️")
+        else:
+            st.success("Aucune alerte critique en cours sur le périmètre actuel.", icon="✅")
+
+    st.markdown("---")
+
+    # --- Section basse : Problèmes récurrents ---
+    chemin_groupes = Path(__file__).resolve().parent.parent / "data" / "clusters_groupes.csv"
+    if chemin_groupes.exists():
+        df_problemes = pd.read_csv(chemin_groupes)
+    else:
+        st.info("Lancez V1_Bertopic.py pour générer les problèmes récurrents.")
+        df_problemes = pd.DataFrame()
+
+    with st.container(height=160):
+        st.dataframe(df_problemes, use_container_width=True, hide_index=True)
+
+
+# 2. CSS global
 st.markdown(
     """
     <style>
+    .stPlotlyChart { margin-bottom: -15px !important; }
+    div[data-testid="stVerticalBlock"] > div { margin-bottom: -5px !important; }
+
     .stDeployButton { display: none !important; }
     [data-testid="stStatusWidget"] { display: none !important; visibility: hidden !important; }
-    
-    /* Supprime le scroll global de la page et fixe la hauteur à 100% de l'écran */
+
     html, body, [data-testid="stAppViewContainer"] {
         overflow: hidden !important;
         height: 100vh !important;
     }
-    
-    /* Ajustement des marges globales */
+
     .block-container {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;
@@ -171,7 +406,6 @@ st.markdown(
         max-width: 100% !important;
     }
 
-    /* Décale la colonne de droite (Assistant) vers le bas d'environ 1 cm pour éviter la coupe en haut */
     div[data-testid="column"]:nth-of-type(2) {
         margin-top: 500px !important;
     }
@@ -180,27 +414,23 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-OPTIONS_PERIODE = ["1 semaine", "2 semaines", "1 mois", "Tout"]
-
-# =====================================================================
-# METTRE LA PARTIE 3 EN COMMENTAIRE SI ON VEUT SUPPRIMER LA BARRE DE NAVIGATION
-# =====================================================================
-
 # 3. Barre latérale de navigation
 with st.sidebar:
     st.markdown("### 📊 TMA Insight")
     page = st.radio(
         "Navigation",
-        ["Vue d'ensemble", "Problèmes récurrents", "Tendances et pics", "Actions correctives", "Tickets"]
+        ["Vue d'ensemble", "Problèmes récurrents", "Tendances et pics", "Actions correctives", "Tickets"],
     )
     st.markdown("---")
     st.caption("Projet 29 • IMT Atlantique")
 
-# 4. Organisation principale en deux colonnes (Tableau de bord / Assistant)
+df = load_tickets()
+
+# 4. Deux colonnes : contenu de la page / assistant
 col_dashboard, col_chatbot = st.columns([3, 1], gap="medium")
 
 # =====================================================================
-# COLONNE GAUCHE : TABLEAU DE BORD FIXE (Sans dépassement)
+# COLONNE GAUCHE : contenu selon l'onglet choisi
 # =====================================================================
 with col_dashboard:
     st.title("Vue d'ensemble du RUN")
@@ -343,52 +573,47 @@ with col_dashboard:
     chemin_groupes = Path(__file__).resolve().parent.parent / "data" / "clusters_groupes.csv"
     if chemin_groupes.exists():
         df_problemes = pd.read_csv(chemin_groupes)
+    if page == "Tickets":
+        afficher_tickets()
     else:
-        st.info("Lancez V1_Bertopic.py pour générer les problèmes récurrents.")
-        df_problemes = pd.DataFrame()
-
-    # --- Conteneur à hauteur fixe avec scroll interne pour les problèmes ---
-    with st.container(height=160):
-        st.dataframe(df_problemes, use_container_width=True, hide_index=True)
+        afficher_vue_ensemble(df)
 
 # =====================================================================
-# COLONNE DROITE : ASSISTANT RUN (Chatbot d'aide intégré)
+# COLONNE DROITE : ASSISTANT RUN
 # =====================================================================
 with col_chatbot:
-    # Petit espace vertical pour descendre l'en-tête d'environ 1 cm
     st.markdown("<div style='height: 25px;'></div>", unsafe_allow_html=True)
-    
+
     st.subheader("Assistant RUN")
     st.caption("chatbot d'aide")
 
     if "messages" not in st.session_state:
-        st.session_state.messages = [
-            {
-                "role": "assistant",
-                "content": ""
-            }
-        ]
+        st.session_state.messages = [{"role": "assistant", "content": ""}]
 
-    # Conteneur de chat avec hauteur fixe pour préserver la mise en page unique
     chat_container = st.container(height=520)
     with chat_container:
         for message in st.session_state.messages:
             with st.chat_message(message["role"], avatar=None if message["role"] == "user" else "🤖"):
                 st.markdown(message["content"])
 
-    # Zone de saisie fixée en bas de la colonne de droite
     user_input = st.chat_input("Poser une question sur les tickets...")
 
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
-        
         history = [{"role": m["role"], "content": m["content"]} for m in st.session_state.messages]
-        
+
         with st.spinner("Analyse..."):
             try:
                 answer, sources, duration = chat(history)
             except Exception as error:
-                answer = f"Erreur LLM : {type(error).__name__}"
-        
+                answer, sources = f"Erreur LLM : {type(error).__name__}", []
+
+        # Applique les modifications de graphique demandées par le LLM
+        for appel in sources:
+            if appel["outil"] == "modifier_graphique":
+                resultat = appel["resultat"]
+                if isinstance(resultat, dict) and resultat.get("ok"):
+                    appliquer_commande(resultat["commande"])
+
         st.session_state.messages.append({"role": "assistant", "content": answer})
         st.rerun()
