@@ -1,0 +1,9 @@
+Problème récurrent,Tickets,Évolution,Action suggérée,Gain estimé
+Écran non actualisé après validation,59,▼ -28 %,Corriger l’exception JavaScript et déclencher la mise à jour de l’écran après validation.,≈ 5 tickets/mois
+Incohérence d’authentification et de droits,57,▲ +138 %,Synchroniser le mot de passe sur toutes les répliques et actualiser les droits du profil.,≈ 4 tickets/mois
+Demandes de procédure métier,49,▲ +62 %,"Fournir les guides d’utilisation et d’export des virements, comptes et tickets.",≈ 4 tickets/mois
+Erreurs de reprise de données,44,▼ -41 %,"Corriger le mapping, dédupliquer les imports et rétablir les liens aux référentiels.",≈ 3 tickets/mois
+Dégradation des performances en charge,38,▲ +71 %,"Traiter par lots, libérer la mémoire et augmenter les workers applicatifs.",≈ 3 tickets/mois
+Verrouillage bloquant des traitements nocturnes,32,▲ +200 %,Identifier puis libérer la session bloquante et corriger la transaction qui conserve le verrou.,≈ 2 tickets/mois
+Variable d’environnement mal configurée,19,▲ +25 %,Corriger son adresse en production puis redéployer le service.,≈ 1 tickets/mois
+Schéma partenaire modifié,17,▲ +50 %,Adapter le mapping des messages au nouveau schéma communiqué par le partenaire,≈ 1 tickets/mois

@@ -1,0 +1,316 @@
+identifiant,date_creation,titre,domaine_metier,application,categorie_technique,groupe,nom_groupe
+TMA-001,2026-04-02 09:23:00+00:00,Message d’erreur technique sur le paiement en ligne,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-002,2026-04-06 16:43:00+00:00,Vulnérabilité signalée dans une bibliothèque de Virements Démo,Virements,Virements Démo,Sécurité,0,Incohérence d’authentification et de droits
+TMA-003,2026-04-10 15:25:00+00:00,Total erroné affiché dans l’opposition carte,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-004,2026-04-13 10:05:00+00:00,Déconnexion immédiate à l’ouverture du virement permanent,Virements,Virements Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-005,2026-04-13 13:08:00+00:00,Coupures intermittentes vers Épargne Démo,Épargne,Épargne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-006,2026-04-13 14:53:00+00:00,Fichier de sortie du traitement de nuit vide,Virements,Virements Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-007,2026-04-13 17:14:00+00:00,Tri incorrect dans le récapitulatif de virement,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-008,2026-04-21 10:22:00+00:00,Caractères illisibles dans l’arbitrage,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-009,2026-04-21 18:16:00+00:00,Besoin d’aide pour modifier l’arbitrage,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-010,2026-04-22 07:03:00+00:00,Lenteur progressive de Support Interne Démo au fil de la journée,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-011,2026-04-24 14:42:00+00:00,Écart entre le tableau de suivi et le fichier source,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-012,2026-04-27 13:16:00+00:00,Seuil de l’arbitrage différent de la valeur validée,Épargne,Épargne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-013,2026-04-27 13:56:00+00:00,Chaîne batch interrompue pendant la mise à jour de l’export des tickets,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-014,2026-04-29 16:23:00+00:00,Ajouter une colonne dans le dossier de crédit,Crédits,Crédits Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-015,2026-05-04 10:36:00+00:00,Lenteur progressive de Épargne Démo au fil de la journée,Épargne,Épargne Démo,Performance,4,Dégradation des performances en charge
+TMA-016,2026-05-05 18:36:00+00:00,Message d’erreur technique sur le module de recherche,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-017,2026-05-06 16:32:00+00:00,La fiche placement ne se met pas à jour après validation,Épargne,Épargne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-018,2026-05-07 13:32:00+00:00,Erreur d’appel au service externe pour la liste des bénéficiaires,Virements,Virements Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-019,2026-05-07 17:23:00+00:00,Anomalie d’affichage de la liste des comptes sur mobile,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-020,2026-05-07 18:23:00+00:00,Caractères illisibles dans le module de recherche,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-021,2026-05-08 13:42:00+00:00,Export de l’offre de prêt qui expire,Crédits,Crédits Démo,Performance,4,Dégradation des performances en charge
+TMA-022,2026-05-08 15:22:00+00:00,Besoin d’aide pour modifier le lot de virements,Virements,Virements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-023,2026-05-11 07:09:00+00:00,Règle de routage erronée pour la file des tickets,Outils internes,Support Interne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-024,2026-05-11 08:02:00+00:00,Caractères illisibles dans le récapitulatif de virement,Virements,Virements Démo,Données,2,Erreurs de reprise de données
+TMA-025,2026-05-11 08:22:00+00:00,Ajouter un filtre par date sur le tableau de suivi,Outils internes,Support Interne Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-026,2026-05-11 12:58:00+00:00,Affichage très lent de l’export des tickets,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-027,2026-05-13 12:03:00+00:00,Références perdues dans la fiche placement après reprise,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-028,2026-05-13 15:07:00+00:00,Mot de passe en clair dans un fichier de configuration de Virements Démo,Virements,Virements Démo,Sécurité,1,Écran non actualisé après validation
+TMA-029,2026-05-13 17:50:00+00:00,Vulnérabilité signalée dans une bibliothèque de Paiements Démo,Cartes et paiements,Paiements Démo,Sécurité,5,Verrouillage bloquant des traitements nocturnes
+TMA-030,2026-05-14 10:52:00+00:00,La file des tickets ne se met pas à jour après validation,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-031,2026-05-18 10:57:00+00:00,Chargement de la fiche incident supérieur à 30 secondes,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-032,2026-05-18 11:50:00+00:00,Question sur l’utilisation du lot de virements,Virements,Virements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-033,2026-05-18 16:57:00+00:00,Temps de réponse dégradé sur le récapitulatif de virement en heure de pointe,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-034,2026-05-19 11:29:00+00:00,Format de date incorrect dans l’offre de prêt,Crédits,Crédits Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-035,2026-05-19 14:11:00+00:00,Procédure à suivre pour le portefeuille,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-036,2026-05-19 17:32:00+00:00,Erreur 500 à l’ouverture du virement permanent,Virements,Virements Démo,Fonctionnement applicatif,5,Verrouillage bloquant des traitements nocturnes
+TMA-037,2026-05-19 17:56:00+00:00,Formulaire vidé au retour arrière sur le virement instantané,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-038,2026-05-21 09:15:00+00:00,Accès refusé au virement permanent,Virements,Virements Démo,Accès/authentification,5,Verrouillage bloquant des traitements nocturnes
+TMA-039,2026-05-21 09:24:00+00:00,Demande de mode opératoire pour le paiement en ligne,Cartes et paiements,Paiements Démo,Assistance utilisateur,6,Schéma partenaire modifié
+TMA-040,2026-05-25 13:56:00+00:00,Où trouver le tableau de suivi dans le portail ?,Outils internes,Support Interne Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-041,2026-05-25 14:42:00+00:00,Notification par e-mail sur la liste des comptes,Comptes,Comptes Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-042,2026-05-25 16:10:00+00:00,Erreur 500 à l’ouverture du tableau de suivi,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-043,2026-05-25 18:16:00+00:00,Formulaire vidé au retour arrière sur la fiche client,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-044,2026-05-27 07:59:00+00:00,Références perdues dans l’historique des opérations après reprise,Comptes,Comptes Démo,Données,2,Erreurs de reprise de données
+TMA-045,2026-06-01 10:59:00+00:00,Caractères illisibles dans le portail support,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-046,2026-06-01 13:27:00+00:00,Simplifier la saisie du virement instantané,Virements,Virements Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-047,2026-06-01 15:48:00+00:00,Références perdues dans le dossier de crédit après reprise,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-048,2026-06-02 09:54:00+00:00,Références perdues dans la valorisation après reprise,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-049,2026-06-02 11:34:00+00:00,Droits manquants pour consulter le virement permanent,Virements,Virements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-050,2026-06-03 14:26:00+00:00,Dates erronées dans la liste des bénéficiaires après migration,Virements,Virements Démo,Données,2,Erreurs de reprise de données
+TMA-051,2026-06-03 16:41:00+00:00,Affichage très lent de l’opposition carte,Cartes et paiements,Paiements Démo,Performance,4,Dégradation des performances en charge
+TMA-052,2026-06-05 10:17:00+00:00,Rôle de validation absent pour la fiche placement,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-053,2026-06-05 11:22:00+00:00,Valeurs manquantes dans l’offre de prêt après import,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-054,2026-06-08 07:00:00+00:00,Explication demandée sur un écran de Paiements Démo,Cartes et paiements,Paiements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-055,2026-06-08 07:08:00+00:00,Pagination cassée sur le récapitulatif de virement,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-056,2026-06-08 11:15:00+00:00,Total erroné affiché dans le récapitulatif de virement,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-057,2026-06-08 12:49:00+00:00,Pagination cassée sur l’offre de prêt,Crédits,Crédits Démo,Fonctionnement applicatif,5,Verrouillage bloquant des traitements nocturnes
+TMA-058,2026-06-08 17:26:00+00:00,Besoin d’aide pour modifier le versement programmé,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-059,2026-06-08 17:26:00+00:00,Besoin d’aide pour modifier l’opposition carte,Cartes et paiements,Paiements Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-060,2026-06-09 15:03:00+00:00,Réponse inattendue de l’API partenaire pour l’arbitrage,Épargne,Épargne Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-061,2026-06-10 08:47:00+00:00,Déconnexion immédiate à l’ouverture du relevé de compte,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-062,2026-06-10 10:52:00+00:00,Nom du serveur introuvable pour Comptes Démo,Comptes,Comptes Démo,Réseau/connectivité,3,Demandes de procédure métier
+TMA-063,2026-06-10 11:35:00+00:00,Erreur d’appel au service externe pour l’historique des paiements,Cartes et paiements,Paiements Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-064,2026-06-10 14:20:00+00:00,Déconnexion immédiate à l’ouverture du tableau d’amortissement,Crédits,Crédits Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-065,2026-06-11 08:36:00+00:00,Réponse inattendue de l’API partenaire pour la pièce justificative,Crédits,Crédits Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-066,2026-06-12 11:14:00+00:00,Format de date incorrect dans la fiche incident,Outils internes,Support Interne Démo,Configuration,4,Dégradation des performances en charge
+TMA-067,2026-06-12 13:05:00+00:00,Rôle de validation absent pour l’historique des paiements,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-068,2026-06-12 17:23:00+00:00,Message d’erreur technique sur la fiche incident,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-069,2026-06-15 08:11:00+00:00,Batch de rapprochement bloqué,Comptes,Comptes Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-070,2026-06-16 08:29:00+00:00,Explication demandée sur un écran de Épargne Démo,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-071,2026-06-17 13:03:00+00:00,Mot de passe en clair dans un fichier de configuration de Support Interne Démo,Outils internes,Support Interne Démo,Sécurité,1,Écran non actualisé après validation
+TMA-072,2026-06-17 16:45:00+00:00,Besoin d’aide pour modifier la pièce justificative,Crédits,Crédits Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-073,2026-06-18 13:19:00+00:00,Chargement du virement permanent supérieur à 30 secondes,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-074,2026-06-19 07:06:00+00:00,Comment exporter l’export des tickets ?,Outils internes,Support Interne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-075,2026-06-19 09:34:00+00:00,Déconnexion immédiate à l’ouverture de la fiche client,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-076,2026-06-19 17:40:00+00:00,Besoin d’aide pour modifier le RIB,Comptes,Comptes Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-077,2026-06-22 11:07:00+00:00,Lenteur progressive de Paiements Démo au fil de la journée,Cartes et paiements,Paiements Démo,Performance,4,Dégradation des performances en charge
+TMA-078,2026-06-22 11:28:00+00:00,Comment exporter le module de recherche ?,Outils internes,Support Interne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-079,2026-06-22 12:15:00+00:00,La liste des comptes ne se met pas à jour après validation,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-080,2026-06-22 12:28:00+00:00,Désynchronisation entre le tableau d’amortissement et le référentiel,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-081,2026-06-22 13:00:00+00:00,Montants incohérents dans le paiement en ligne,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-082,2026-06-22 16:33:00+00:00,Demande de mode opératoire pour l’arbitrage,Épargne,Épargne Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-083,2026-06-22 17:46:00+00:00,Références perdues dans l’activation de carte après reprise,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-084,2026-06-26 10:10:00+00:00,Mauvais fuseau horaire sur l’historique des paiements,Cartes et paiements,Paiements Démo,Configuration,4,Dégradation des performances en charge
+TMA-085,2026-06-29 07:32:00+00:00,Affichage très lent de l’arbitrage,Épargne,Épargne Démo,Performance,4,Dégradation des performances en charge
+TMA-086,2026-06-29 12:35:00+00:00,Paramètre incorrect pour le versement programmé après déploiement,Épargne,Épargne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-087,2026-06-29 16:43:00+00:00,Besoin d’aide pour modifier la valorisation,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-088,2026-06-29 17:42:00+00:00,Mauvais fuseau horaire sur le tableau d’amortissement,Crédits,Crédits Démo,Configuration,4,Dégradation des performances en charge
+TMA-089,2026-06-30 10:02:00+00:00,Authentification forte bloquée après changement de téléphone,Crédits,Crédits Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-090,2026-06-30 13:59:00+00:00,Procédure à suivre pour le livret,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-091,2026-07-01 10:10:00+00:00,Traitement planifié non exécuté pour le module de recherche,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-092,2026-07-02 14:56:00+00:00,Traitement planifié non exécuté pour le portefeuille,Épargne,Épargne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-093,2026-07-02 17:04:00+00:00,Comment exporter le paiement en ligne ?,Cartes et paiements,Paiements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-094,2026-07-03 08:26:00+00:00,Échec du traitement de nuit sur l’échéancier,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-095,2026-07-03 10:48:00+00:00,Échec du traitement de nuit sur la fiche placement,Épargne,Épargne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-096,2026-07-03 11:13:00+00:00,Message d’erreur technique sur le virement permanent,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-097,2026-07-03 17:06:00+00:00,Chaîne batch interrompue pendant la mise à jour de la fiche incident,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-098,2026-07-06 07:42:00+00:00,Champ obligatoire non contrôlé sur le lot de virements,Virements,Virements Démo,Fonctionnement applicatif,7,Variable d’environnement mal configurée
+TMA-099,2026-07-06 07:52:00+00:00,Échec du traitement de nuit sur l’ordre de virement,Virements,Virements Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-100,2026-07-06 09:17:00+00:00,Traitement planifié non exécuté pour l’activation de carte,Cartes et paiements,Paiements Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-101,2026-07-06 12:33:00+00:00,Traitement planifié non exécuté pour le portail support,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-102,2026-07-06 13:19:00+00:00,Échec du traitement de nuit sur le virement permanent,Virements,Virements Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-103,2026-07-06 13:29:00+00:00,Mauvais fuseau horaire sur le plafond de paiement,Cartes et paiements,Paiements Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-104,2026-07-06 13:39:00+00:00,Chaîne batch interrompue pendant la mise à jour de la valorisation,Épargne,Épargne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-105,2026-07-06 14:39:00+00:00,Notification par e-mail sur la liste des bénéficiaires,Virements,Virements Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-106,2026-07-06 15:01:00+00:00,Échec du traitement de nuit sur le simulateur de crédit,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-107,2026-07-06 16:56:00+00:00,Message d’erreur technique sur le plafond de paiement,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,7,Variable d’environnement mal configurée
+TMA-108,2026-07-06 17:21:00+00:00,Écart entre la pièce justificative et le fichier source,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-109,2026-07-06 18:24:00+00:00,Traitement planifié non exécuté pour le tableau d’amortissement,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-110,2026-07-07 07:06:00+00:00,Tri incorrect dans le portefeuille,Épargne,Épargne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-111,2026-07-07 11:46:00+00:00,Chaîne batch interrompue pendant la mise à jour du portail support,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-112,2026-07-07 17:22:00+00:00,Échec du traitement de nuit sur le dossier de crédit,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-113,2026-07-08 09:10:00+00:00,Échec du traitement de nuit sur le plafond de paiement,Cartes et paiements,Paiements Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-114,2026-07-08 12:53:00+00:00,Lot de nuit terminé en anomalie,Épargne,Épargne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-115,2026-07-10 13:17:00+00:00,Échec du traitement de nuit sur le tableau de suivi,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-116,2026-07-10 18:32:00+00:00,Lenteur progressive de Comptes Démo au fil de la journée,Comptes,Comptes Démo,Performance,4,Dégradation des performances en charge
+TMA-117,2026-07-13 07:28:00+00:00,Traitement planifié non exécuté pour la valorisation,Épargne,Épargne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-118,2026-07-13 15:24:00+00:00,Connexion impossible après réinitialisation du mot de passe,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-119,2026-07-14 08:34:00+00:00,Explication demandée sur un écran de Virements Démo,Virements,Virements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-120,2026-07-14 15:10:00+00:00,URL de service pointant vers la recette sur Virements Démo,Virements,Virements Démo,Configuration,4,Dégradation des performances en charge
+TMA-121,2026-07-15 07:33:00+00:00,Chaîne batch interrompue pendant la mise à jour du simulateur de crédit,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-122,2026-07-15 16:52:00+00:00,Affichage très lent du virement instantané,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-123,2026-07-16 10:01:00+00:00,Traitement planifié non exécuté pour la file des tickets,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-124,2026-07-17 14:14:00+00:00,Coupures intermittentes vers Support Interne Démo,Outils internes,Support Interne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-125,2026-07-17 16:42:00+00:00,Le tableau de suivi ne se met pas à jour après validation,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-126,2026-07-20 07:56:00+00:00,Erreur d’appel au service externe pour la liste des comptes,Comptes,Comptes Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-127,2026-07-20 10:57:00+00:00,Question sur l’utilisation de la valorisation,Épargne,Épargne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-128,2026-07-20 18:01:00+00:00,Tri incorrect dans la fiche carte,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-129,2026-07-21 08:53:00+00:00,Demande de mode opératoire pour l’activation de carte,Cartes et paiements,Paiements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-130,2026-07-23 10:12:00+00:00,Comment exporter la pièce justificative ?,Crédits,Crédits Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-131,2026-07-24 16:17:00+00:00,Question sur l’utilisation de l’historique des opérations,Comptes,Comptes Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-132,2026-07-27 07:09:00+00:00,Écran figé pendant la modification de la liste des comptes,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-133,2026-07-27 08:51:00+00:00,Temps de réponse dégradé sur l’activation de carte en heure de pointe,Cartes et paiements,Paiements Démo,Performance,4,Dégradation des performances en charge
+TMA-134,2026-07-27 09:24:00+00:00,Question sur l’utilisation du plafond de paiement,Cartes et paiements,Paiements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-135,2026-07-27 11:48:00+00:00,Écran figé pendant la modification de l’échéancier,Crédits,Crédits Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-136,2026-07-27 14:17:00+00:00,Rôle de validation absent pour le solde,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-137,2026-07-27 15:43:00+00:00,Pagination cassée sur la file des tickets,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-138,2026-07-28 09:59:00+00:00,Échec du traitement de nuit sur l’export des tickets,Outils internes,Support Interne Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-139,2026-07-28 10:28:00+00:00,Valeurs manquantes dans la fiche incident après import,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-140,2026-07-29 12:38:00+00:00,Chargement de la liste des comptes supérieur à 30 secondes,Comptes,Comptes Démo,Performance,4,Dégradation des performances en charge
+TMA-141,2026-07-31 11:05:00+00:00,Montants incohérents dans l’arbitrage,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-142,2026-08-07 16:43:00+00:00,Comment exporter la liste des comptes ?,Comptes,Comptes Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-143,2026-08-10 11:04:00+00:00,Champ obligatoire non contrôlé sur le portail support,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-144,2026-08-10 14:16:00+00:00,Option désactivée par erreur sur la liste des bénéficiaires,Virements,Virements Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-145,2026-08-11 15:54:00+00:00,Temps de réponse dégradé sur la fiche carte en heure de pointe,Cartes et paiements,Paiements Démo,Performance,4,Dégradation des performances en charge
+TMA-146,2026-08-12 12:59:00+00:00,Session expirée en boucle sur Virements Démo,Virements,Virements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-147,2026-08-12 17:53:00+00:00,Réponse inattendue de l’API partenaire pour le lot de virements,Virements,Virements Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-148,2026-08-13 13:51:00+00:00,Lots jamais lancés à l’horaire prévu,Virements,Virements Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-149,2026-08-14 06:28:00+00:00,Connexion impossible après modification du mot de passe,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-150,2026-08-15 11:44:00+00:00,Recherche des opérations sensible à la casse,Comptes,Comptes Démo,Fonctionnement applicatif,7,Variable d’environnement mal configurée
+TMA-151,2026-08-16 12:46:00+00:00,Export avec plusieurs dossiers sans responsable,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-152,2026-08-17 08:20:00+00:00,Bouton « Enregistrer » sans effet sur l’historique des paiements,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,2,Erreurs de reprise de données
+TMA-153,2026-08-17 13:23:00+00:00,Notifications de tickets désactivées,Outils internes,Support Interne Démo,Configuration,1,Écran non actualisé après validation
+TMA-154,2026-08-17 14:33:00+00:00,Notification par e-mail sur l’ordre de virement,Virements,Virements Démo,Demande d’évolution,1,Écran non actualisé après validation
+TMA-155,2026-08-17 15:50:00+00:00,Recherche lente dans la valorisation,Épargne,Épargne Démo,Performance,4,Dégradation des performances en charge
+TMA-156,2026-08-17 18:29:00+00:00,Bouton « Enregistrer » sans effet sur le tableau de suivi,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-157,2026-08-18 06:25:00+00:00,Liste des bénéficiaires lente aux heures chargées,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-158,2026-08-18 14:20:00+00:00,Permettre l’export Excel du lot de virements,Virements,Virements Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-159,2026-08-19 08:51:00+00:00,Anomalie d’affichage du portail support sur mobile,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-160,2026-08-19 11:30:00+00:00,Téléchargement du relevé interrompu,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-161,2026-08-20 14:05:00+00:00,Envoi des lots interrompu avant réception,Virements,Virements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-162,2026-08-20 14:07:00+00:00,Erreur d’appel au service externe pour le versement programmé,Épargne,Épargne Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-163,2026-08-20 14:54:00+00:00,Déconnexion immédiate à l’ouverture de l’historique des opérations,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-164,2026-08-21 06:21:00+00:00,Boucle de connexion sur le portail support,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-165,2026-08-21 17:44:00+00:00,Déconnexion immédiate à l’ouverture du tableau de suivi,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-166,2026-08-22 12:59:00+00:00,Commentaire saisi perdu après enregistrement,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-167,2026-08-23 13:10:00+00:00,Session rejetée lors de l’ouverture de l’espace épargne,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-168,2026-08-24 07:48:00+00:00,Anomalie d’affichage du lot de virements sur mobile,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-169,2026-08-24 08:48:00+00:00,Format de date incorrect dans le versement programmé,Épargne,Épargne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-170,2026-08-24 12:00:00+00:00,Valeurs manquantes dans la file des tickets après import,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-171,2026-08-24 12:43:00+00:00,Procédure à suivre pour le virement permanent,Virements,Virements Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-172,2026-08-24 14:58:00+00:00,Libellés contenant des caractères illisibles,Comptes,Comptes Démo,Données,2,Erreurs de reprise de données
+TMA-173,2026-08-24 17:29:00+00:00,Afficher un historique des modifications du simulateur de crédit,Crédits,Crédits Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-174,2026-08-25 08:14:00+00:00,Doublons dans l’échéancier,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-175,2026-08-25 11:29:00+00:00,Pièces jointes indisponibles après une coupure,Crédits,Crédits Démo,Réseau/connectivité,2,Erreurs de reprise de données
+TMA-176,2026-08-26 09:26:00+00:00,Référence du produit absente sur certains placements,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-177,2026-08-26 12:09:00+00:00,Erreur d’appel au service externe pour l’échéancier,Crédits,Crédits Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-178,2026-08-27 14:08:00+00:00,Accès aux cartes perdu après changement de service,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-179,2026-08-27 15:59:00+00:00,Caractères illisibles dans la fiche carte,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-180,2026-08-28 06:00:00+00:00,Plafond de démonstration incorrect après mise en service,Virements,Virements Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-181,2026-08-28 17:09:00+00:00,Demande de mode opératoire pour la pièce justificative,Crédits,Crédits Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-182,2026-08-29 11:18:00+00:00,Ouverture des dossiers lourds trop lente,Crédits,Crédits Démo,Performance,4,Dégradation des performances en charge
+TMA-183,2026-08-30 15:20:00+00:00,Format des dates incorrect dans les documents,Crédits,Crédits Démo,Configuration,4,Dégradation des performances en charge
+TMA-184,2026-08-31 08:14:00+00:00,Erreur 500 à l’ouverture du livret,Épargne,Épargne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-185,2026-08-31 09:45:00+00:00,Pièce justificative impossible à remplacer,Crédits,Crédits Démo,Fonctionnement applicatif,2,Erreurs de reprise de données
+TMA-186,2026-08-31 09:57:00+00:00,Données sensibles visibles dans les journaux de Crédits Démo,Crédits,Crédits Démo,Sécurité,5,Verrouillage bloquant des traitements nocturnes
+TMA-187,2026-08-31 10:15:00+00:00,Total erroné affiché dans l’activation de carte,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-188,2026-08-31 10:20:00+00:00,Mot de passe en clair dans un fichier de configuration de Épargne Démo,Épargne,Épargne Démo,Sécurité,0,Incohérence d’authentification et de droits
+TMA-189,2026-08-31 10:21:00+00:00,Total erroné affiché dans le livret,Épargne,Épargne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-190,2026-08-31 12:32:00+00:00,Total erroné affiché dans l’offre de prêt,Crédits,Crédits Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-191,2026-09-01 07:57:00+00:00,Accès refusé à la fiche placement,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-192,2026-09-01 11:29:00+00:00,Ancien taux encore utilisé par le simulateur,Crédits,Crédits Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-193,2026-09-02 07:05:00+00:00,Écran blanc lors de l’ouverture des détails de carte,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,2,Erreurs de reprise de données
+TMA-194,2026-09-02 10:58:00+00:00,Données sensibles visibles dans les journaux de Support Interne Démo,Outils internes,Support Interne Démo,Sécurité,1,Écran non actualisé après validation
+TMA-195,2026-09-02 11:40:00+00:00,Message d’erreur technique sur le solde,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-196,2026-09-02 15:47:00+00:00,Accès refusé à la liste des comptes,Comptes,Comptes Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-197,2026-09-03 06:37:00+00:00,Nouvel appareil non reconnu à la connexion,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-198,2026-09-03 08:07:00+00:00,Doublons dans l’activation de carte,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-199,2026-09-03 09:14:00+00:00,Format du message partenaire modifié sans préavis,Cartes et paiements,Paiements Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-200,2026-09-03 17:44:00+00:00,Affichage très lent de la liste des bénéficiaires,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-201,2026-09-04 11:41:00+00:00,Bénéficiaire présent deux fois dans la liste,Virements,Virements Démo,Données,2,Erreurs de reprise de données
+TMA-202,2026-09-04 18:00:00+00:00,Anomalie d’affichage du tableau de suivi sur mobile,Outils internes,Support Interne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-203,2026-09-05 09:05:00+00:00,Option de paiement de démonstration masquée,Cartes et paiements,Paiements Démo,Configuration,1,Écran non actualisé après validation
+TMA-204,2026-09-06 15:52:00+00:00,Nouvelle catégorie routée vers la mauvaise équipe,Outils internes,Support Interne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-205,2026-09-07 09:11:00+00:00,Accès intermittent au portail depuis un site,Épargne,Épargne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-206,2026-09-07 10:04:00+00:00,Simplifier la saisie de la fiche carte,Cartes et paiements,Paiements Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-207,2026-09-07 18:00:00+00:00,Afficher un historique des modifications de l’opposition carte,Cartes et paiements,Paiements Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-208,2026-09-08 06:09:00+00:00,Accès refusé à un dossier malgré une habilitation prévue,Crédits,Crédits Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-209,2026-09-08 10:17:00+00:00,Erreur d’appel au service externe pour le lot de virements,Virements,Virements Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-210,2026-09-09 12:58:00+00:00,Export des paiements expiré sur de grands volumes,Cartes et paiements,Paiements Démo,Performance,2,Erreurs de reprise de données
+TMA-211,2026-09-09 13:51:00+00:00,Dates erronées dans l’offre de prêt après migration,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-212,2026-09-09 14:25:00+00:00,Session expirée en boucle sur Comptes Démo,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-213,2026-09-09 14:38:00+00:00,L’activation de carte ne se met pas à jour après validation,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-214,2026-09-10 09:56:00+00:00,Comment exporter l’ordre de virement ?,Virements,Virements Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-215,2026-09-10 13:37:00+00:00,Historique incomplet pour une journée,Virements,Virements Démo,Données,4,Dégradation des performances en charge
+TMA-216,2026-09-10 14:34:00+00:00,Désynchronisation entre le plafond de paiement et le référentiel,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-217,2026-09-11 10:05:00+00:00,Chargement du portail impossible en télétravail,Comptes,Comptes Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-218,2026-09-12 09:17:00+00:00,Service documentaire non joignable depuis le portail,Crédits,Crédits Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-219,2026-09-13 10:28:00+00:00,Valorisation du portefeuille restée sur la veille,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-220,2026-09-14 08:18:00+00:00,Chargement de l’export des tickets supérieur à 30 secondes,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-221,2026-09-14 09:32:00+00:00,Double soumission possible sur la fiche carte,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-222,2026-09-14 11:17:00+00:00,Date de naissance absente après import,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-223,2026-09-14 14:49:00+00:00,Session expirée en boucle sur Paiements Démo,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-224,2026-09-14 14:52:00+00:00,Explication demandée sur un écran de Support Interne Démo,Outils internes,Support Interne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-225,2026-09-14 17:34:00+00:00,Question sur l’utilisation de l’échéancier,Crédits,Crédits Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-226,2026-09-15 07:00:00+00:00,Coupures intermittentes vers Virements Démo,Virements,Virements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-227,2026-09-15 08:17:00+00:00,Montant initial incohérent après migration,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-228,2026-09-15 11:35:00+00:00,Coupures intermittentes vers Paiements Démo,Cartes et paiements,Paiements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-229,2026-09-15 13:04:00+00:00,Références perdues dans le tableau d’amortissement après reprise,Crédits,Crédits Démo,Données,2,Erreurs de reprise de données
+TMA-230,2026-09-15 15:00:00+00:00,Perte de connexion Wi-Fi sur un site,Virements,Virements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-231,2026-09-15 18:32:00+00:00,Flux bloqué par le pare-feu vers Épargne Démo,Épargne,Épargne Démo,Réseau/connectivité,5,Verrouillage bloquant des traitements nocturnes
+TMA-232,2026-09-15 18:38:00+00:00,Tri incorrect dans le virement instantané,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-233,2026-09-16 07:21:00+00:00,Option désactivée par erreur sur la valorisation,Épargne,Épargne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-234,2026-09-16 08:24:00+00:00,Certificat bientôt expiré sur Virements Démo,Virements,Virements Démo,Sécurité,5,Verrouillage bloquant des traitements nocturnes
+TMA-235,2026-09-16 08:40:00+00:00,Paiement affiché en double dans l’historique,Cartes et paiements,Paiements Démo,Données,2,Erreurs de reprise de données
+TMA-236,2026-09-16 09:00:00+00:00,Flux bloqué par le pare-feu vers Crédits Démo,Crédits,Crédits Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-237,2026-09-16 12:36:00+00:00,Virements Démo inaccessible depuis une agence,Virements,Virements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-238,2026-09-16 14:43:00+00:00,Droits manquants pour consulter la fiche incident,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-239,2026-09-16 15:21:00+00:00,Session expirée en boucle sur Support Interne Démo,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-240,2026-09-16 16:42:00+00:00,Accès VPN impossible à Épargne Démo,Épargne,Épargne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-241,2026-09-17 10:26:00+00:00,Tableau de bord ralenti après ouverture,Épargne,Épargne Démo,Performance,4,Dégradation des performances en charge
+TMA-242,2026-09-17 13:14:00+00:00,Rôle de validation absent pour le portail support,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-243,2026-09-17 18:01:00+00:00,Déconnexion immédiate à l’ouverture de la fiche incident,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-244,2026-09-18 12:06:00+00:00,Calcul de simulation anormalement long,Crédits,Crédits Démo,Performance,4,Dégradation des performances en charge
+TMA-245,2026-09-19 08:52:00+00:00,Rafraîchissement programmé à une mauvaise heure,Épargne,Épargne Démo,Configuration,4,Dégradation des performances en charge
+TMA-246,2026-09-20 14:44:00+00:00,Les filtres ne changent pas la liste des placements,Épargne,Épargne Démo,Fonctionnement applicatif,7,Variable d’environnement mal configurée
+TMA-247,2026-09-21 07:50:00+00:00,Déconnexion immédiate à l’ouverture du récapitulatif de virement,Virements,Virements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-248,2026-09-21 12:58:00+00:00,Authentification renforcée bloquée pour un conseiller,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-249,2026-09-21 13:08:00+00:00,Réponse inattendue de l’API partenaire pour le tableau de suivi,Outils internes,Support Interne Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-250,2026-09-21 14:21:00+00:00,Temps de réponse dégradé sur la pièce justificative en heure de pointe,Crédits,Crédits Démo,Performance,4,Dégradation des performances en charge
+TMA-251,2026-09-21 16:41:00+00:00,Traitement planifié non exécuté pour l’échéancier,Crédits,Crédits Démo,Traitements batch,5,Verrouillage bloquant des traitements nocturnes
+TMA-252,2026-09-21 18:01:00+00:00,Accès refusé au versement programmé,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-253,2026-09-22 08:51:00+00:00,Relevé produit avec une période par défaut incorrecte,Comptes,Comptes Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-254,2026-09-22 11:09:00+00:00,Anomalie d’affichage de l’activation de carte sur mobile,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-255,2026-09-22 15:06:00+00:00,Doublons dans le portail support,Outils internes,Support Interne Démo,Données,2,Erreurs de reprise de données
+TMA-256,2026-09-22 18:33:00+00:00,Fichier d’échange refusé par le système tiers,Crédits,Crédits Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-257,2026-09-23 06:02:00+00:00,Consultation du portefeuille lente au premier accès,Épargne,Épargne Démo,Performance,4,Dégradation des performances en charge
+TMA-258,2026-09-23 09:00:00+00:00,Déconnexion immédiate à l’ouverture du RIB,Comptes,Comptes Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-259,2026-09-23 10:13:00+00:00,Anomalie d’affichage du virement instantané sur mobile,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-260,2026-09-23 18:57:00+00:00,Chargement du portail support supérieur à 30 secondes,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-261,2026-09-24 10:23:00+00:00,Compte verrouillé après plusieurs tentatives,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-262,2026-09-24 14:56:00+00:00,Montants incohérents dans la valorisation,Épargne,Épargne Démo,Données,2,Erreurs de reprise de données
+TMA-263,2026-09-25 11:51:00+00:00,Code de validation reçu mais refusé,Virements,Virements Démo,Accès/authentification,1,Écran non actualisé après validation
+TMA-264,2026-09-25 13:42:00+00:00,Droits manquants pour consulter l’opposition carte,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-265,2026-09-26 09:12:00+00:00,Seuil d’alerte différent de la valeur attendue,Épargne,Épargne Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-266,2026-09-27 13:24:00+00:00,Validation des lots en attente prolongée,Virements,Virements Démo,Performance,4,Dégradation des performances en charge
+TMA-267,2026-09-28 07:58:00+00:00,Code de validation non reçu par SMS,Virements,Virements Démo,Accès/authentification,1,Écran non actualisé après validation
+TMA-268,2026-09-28 09:14:00+00:00,Droits manquants pour consulter le tableau d’amortissement,Crédits,Crédits Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-269,2026-09-28 10:27:00+00:00,Accès refusé au dossier de crédit,Crédits,Crédits Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-270,2026-09-28 11:37:00+00:00,Le signataire ne peut plus approuver les virements,Virements,Virements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-271,2026-09-28 16:18:00+00:00,Droits manquants pour consulter le livret,Épargne,Épargne Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-272,2026-09-28 17:39:00+00:00,Erreur d’appel au service externe pour le livret,Épargne,Épargne Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-273,2026-09-28 18:42:00+00:00,Habilitations non mises à jour après une mutation,Virements,Virements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-274,2026-09-29 07:32:00+00:00,Connexion au service de validation refusée,Virements,Virements Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-275,2026-09-30 06:05:00+00:00,Ajout de bénéficiaire bloqué sur un nom avec apostrophe,Virements,Virements Démo,Fonctionnement applicatif,0,Incohérence d’authentification et de droits
+TMA-276,2026-09-30 07:20:00+00:00,Notification par e-mail sur la fiche client,Comptes,Comptes Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-277,2026-09-30 11:25:00+00:00,Besoin d’aide pour modifier la file des tickets,Outils internes,Support Interne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-278,2026-09-30 13:28:00+00:00,Message d’erreur technique sur le RIB,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-279,2026-10-01 07:46:00+00:00,Champ obligatoire non contrôlé sur le RIB,Comptes,Comptes Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-280,2026-10-01 12:04:00+00:00,Solde affiché différent du journal comptable,Comptes,Comptes Démo,Données,2,Erreurs de reprise de données
+TMA-281,2026-10-01 14:57:00+00:00,Écart entre la liste des comptes et le fichier source,Comptes,Comptes Démo,Données,2,Erreurs de reprise de données
+TMA-282,2026-10-01 15:26:00+00:00,Message d’erreur technique sur le tableau d’amortissement,Crédits,Crédits Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-283,2026-10-01 18:30:00+00:00,Droits manquants pour consulter l’historique des opérations,Comptes,Comptes Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-284,2026-10-02 07:03:00+00:00,Accès refusé au paiement en ligne,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-285,2026-10-02 07:12:00+00:00,Bouton de validation sans effet sur mobile,Virements,Virements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-286,2026-10-02 08:45:00+00:00,Règle de routage erronée pour la liste des bénéficiaires,Virements,Virements Démo,Configuration,7,Variable d’environnement mal configurée
+TMA-287,2026-10-02 10:29:00+00:00,Droits manquants pour consulter le portail support,Outils internes,Support Interne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-288,2026-10-02 11:52:00+00:00,Où trouver la liste des comptes dans le portail ?,Comptes,Comptes Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-289,2026-10-03 10:36:00+00:00,Connexion instable après changement de réseau Wi-Fi,Outils internes,Support Interne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-290,2026-10-04 09:14:00+00:00,Adresse du portail introuvable sur le réseau interne,Comptes,Comptes Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-291,2026-10-05 12:44:00+00:00,Réponse inattendue de l’API partenaire pour le relevé de compte,Comptes,Comptes Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-292,2026-10-05 15:07:00+00:00,Communication interrompue avec le service de paiements,Cartes et paiements,Paiements Démo,Réseau/connectivité,6,Schéma partenaire modifié
+TMA-293,2026-10-05 15:43:00+00:00,Comment exporter le RIB ?,Comptes,Comptes Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-294,2026-10-05 18:56:00+00:00,Rôle de validation absent pour le tableau de suivi,Outils internes,Support Interne Démo,Accès/authentification,1,Écran non actualisé après validation
+TMA-295,2026-10-05 18:58:00+00:00,Session expirée en boucle sur Épargne Démo,Épargne,Épargne Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-296,2026-10-06 10:25:00+00:00,Recherche des tickets plus lente après plusieurs heures,Outils internes,Support Interne Démo,Performance,4,Dégradation des performances en charge
+TMA-297,2026-10-06 12:07:00+00:00,Doublons dans le lot de virements,Virements,Virements Démo,Données,2,Erreurs de reprise de données
+TMA-298,2026-10-06 14:31:00+00:00,Question sur l’utilisation de la file des tickets,Outils internes,Support Interne Démo,Assistance utilisateur,1,Écran non actualisé après validation
+TMA-299,2026-10-07 11:55:00+00:00,Simulateur figé après changement de durée,Crédits,Crédits Démo,Fonctionnement applicatif,4,Dégradation des performances en charge
+TMA-300,2026-10-07 15:33:00+00:00,Comment exporter la file des tickets ?,Outils internes,Support Interne Démo,Assistance utilisateur,3,Demandes de procédure métier
+TMA-301,2026-10-08 08:41:00+00:00,Portail support inaccessible depuis une agence,Outils internes,Support Interne Démo,Réseau/connectivité,0,Incohérence d’authentification et de droits
+TMA-302,2026-10-08 09:23:00+00:00,Rôle de validation absent pour le portefeuille,Épargne,Épargne Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-303,2026-10-09 09:21:00+00:00,Droits manquants pour consulter l’offre de prêt,Crédits,Crédits Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-304,2026-10-09 15:46:00+00:00,Confirmation d’opposition invisible,Cartes et paiements,Paiements Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-305,2026-10-09 16:22:00+00:00,Déconnexion immédiate à l’ouverture du simulateur de crédit,Crédits,Crédits Démo,Accès/authentification,3,Demandes de procédure métier
+TMA-306,2026-10-10 13:54:00+00:00,Historique des opérations très lent,Comptes,Comptes Démo,Performance,4,Dégradation des performances en charge
+TMA-307,2026-10-11 13:10:00+00:00,Page d’accueil lente après consultation de plusieurs comptes,Comptes,Comptes Démo,Performance,0,Incohérence d’authentification et de droits
+TMA-308,2026-10-12 09:36:00+00:00,Paramètre incorrect pour le dossier de crédit après déploiement,Crédits,Crédits Démo,Configuration,4,Dégradation des performances en charge
+TMA-309,2026-10-12 09:45:00+00:00,Accès refusé à la fiche carte,Cartes et paiements,Paiements Démo,Accès/authentification,0,Incohérence d’authentification et de droits
+TMA-310,2026-10-12 11:48:00+00:00,Écart entre le relevé de compte et le fichier source,Comptes,Comptes Démo,Données,2,Erreurs de reprise de données
+TMA-311,2026-10-12 17:35:00+00:00,Flux vers le partenaire de paiement rejeté,Comptes,Comptes Démo,Interface partenaire,6,Schéma partenaire modifié
+TMA-312,2026-10-13 07:48:00+00:00,Permettre l’export Excel du module de recherche,Outils internes,Support Interne Démo,Demande d’évolution,3,Demandes de procédure métier
+TMA-313,2026-10-13 15:12:00+00:00,Valeurs manquantes dans le virement instantané après import,Virements,Virements Démo,Données,2,Erreurs de reprise de données
+TMA-314,2026-10-14 07:08:00+00:00,Double soumission possible sur l’arbitrage,Épargne,Épargne Démo,Fonctionnement applicatif,1,Écran non actualisé après validation
+TMA-315,2026-10-14 12:19:00+00:00,URL de service pointant vers la recette sur Épargne Démo,Épargne,Épargne Démo,Configuration,4,Dégradation des performances en charge

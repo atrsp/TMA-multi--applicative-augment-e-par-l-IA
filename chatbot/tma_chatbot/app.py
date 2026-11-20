@@ -120,6 +120,8 @@
 
 """Interface Streamlit TMA Insight : Tableau de bord fixe sur une seule page avec assistant."""
 
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 from llm import MODEL, chat
@@ -306,28 +308,12 @@ with col_dashboard:
     st.markdown("---")
 
     # --- Section basse : Problèmes récurrents avec scroll interne fixe ---
-    st.subheader("Problèmes récurrents et actions suggérées")
-    
-    data_problemes = {
-        "Problème récurrent": [
-            "Compte verrouillé après tentatives", 
-            "Traitement de nuit interrompu", 
-            "Historique des opérations lent",
-            "Erreur de synchronisation batch",
-            "Saturation disque serveur principal"
-        ],
-        "Tickets": [24, 18, 15, 9, 7],
-        "Évolution": ["▲ +60 %", "▶ stable", "▼ -20 %", "▲ +10 %", "▶ stable"],
-        "Action suggérée": [
-            "Déverrouillage en libre-service après vérification d'identité", 
-            "Vérifier la présence du fichier d'entrée avant lancement", 
-            "Index sur la table des opérations, mise en cache",
-            "Relance automatique du service de synchro",
-            "Nettoyage des logs temporaires"
-        ],
-        "Gain estimé": ["≈ 8 tickets/mois", "≈ 5 tickets/mois", "≈ 4 tickets/mois", "≈ 3 tickets/mois", "≈ 2 tickets/mois"]
-    }
-    df_problemes = pd.DataFrame(data_problemes)
+    chemin_groupes = Path(__file__).resolve().parent.parent / "data" / "clusters_groupes.csv"
+    if chemin_groupes.exists():
+        df_problemes = pd.read_csv(chemin_groupes)
+    else:
+        st.info("Lancez V1_Bertopic.py pour générer les problèmes récurrents.")
+        df_problemes = pd.DataFrame()
 
     # --- Conteneur à hauteur fixe avec scroll interne pour les problèmes ---
     with st.container(height=160):

@@ -6,3 +6,5 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 data/*.csv
+!data/clusters_groupes.csv
+!data/clusters_tickets.csv
