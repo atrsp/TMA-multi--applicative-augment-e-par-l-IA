@@ -290,6 +290,7 @@ FUNCTIONS = {
         synthese_hebdo,
         detail_ticket,
         get_resolved_last_14_days,
+        modifier_graphique,
     )
 }
 
