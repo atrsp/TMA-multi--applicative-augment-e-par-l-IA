@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Copilote RUN — TMA</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Chart.js dessine les graphiques. C'est la seule bibliothèque externe du frontend. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ======================= MENU LATÉRAL ======================= -->
+<aside class="menu">
+  <div class="marque">
+    <div class="logo">RT</div>
+    <div><strong>RunTrace</strong><small>Copilote TMA · AIOps</small></div>
+  </div>
+
+  <nav>
+    <p class="rubrique">Pilotage</p>
+    <a href="#/tableau" data-page="tableau">Tableau de bord</a>
+    <a href="#/problemes" data-page="problemes">Problèmes récurrents <span class="pastille" id="c-problemes"></span></a>
+    <a href="#/pics" data-page="pics">Pics et alertes <span class="pastille alerte" id="c-pics"></span></a>
+    <a href="#/gain" data-page="gain">Gain estimé</a>
+
+    <p class="rubrique">Opérations</p>
+    <a href="#/copilote" data-page="copilote">Copilote</a>
+    <a href="#/nouveaux" data-page="nouveaux">Nouveaux tickets</a>
+    <a href="#/plans" data-page="plans">Plans d'action <span class="pastille alerte" id="c-plans"></span></a>
+    <a href="#/synthese" data-page="synthese">Synthèses hebdo</a>
+
+    <p class="rubrique">Administration</p>
+    <a href="#/reglages" data-page="reglages">Connecteurs et seuils</a>
+  </nav>
+
+  <div class="pied-menu" id="pied-menu"></div>
+</aside>
+
+<!-- ======================= CONTENU ======================= -->
+<main>
+  <header class="entete">
+    <div>
+      <h1 id="titre-page">Tableau de bord du RUN</h1>
+      <p id="sous-titre" class="discret"></p>
+    </div>
+    <div class="commandes">
+      <label>Semaine de référence
+        <select id="choix-semaine" title="L'analyse est faite comme si l'on était à la fin de cette semaine"></select>
+      </label>
+      <label>Historique
+        <select id="choix-fenetre" title="Nombre de semaines analysées avant la semaine de référence">
+          <option value="4">4 semaines</option><option value="8">8 semaines</option>
+          <option value="12">12 semaines</option><option value="26">26 semaines</option>
+          <option value="52">52 semaines</option><option value="0">Tout</option>
+        </select>
+      </label>
+      <button id="bouton-analyse" class="bouton">Relancer l'analyse</button>
+    </div>
+  </header>
+
+  <div id="bandeau-etat"></div>
+  <section id="page"></section>
+</main>
+
+<!-- Fenêtre de détail d'un ticket (ouverte en cliquant sur une clé TMA-…) -->
+<dialog id="fenetre-ticket"></dialog>
+
+<script type="module" src="/static/js/app.js"></script>
+</body>
+</html>

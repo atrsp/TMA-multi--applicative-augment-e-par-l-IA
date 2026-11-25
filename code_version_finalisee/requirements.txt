@@ -1,0 +1,23 @@
+# Dépendances du Copilote RUN (Python 3.11 ou plus récent).
+# Installation :  pip install -r requirements.txt
+
+# --- Application web ---
+fastapi==0.163.1
+uvicorn==0.54.0
+pydantic==2.14.3
+python-dotenv==1.2.4
+
+# --- Moteur d'analyse ---
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+sentence-transformers==6.3.0
+torch==2.15.0
+
+# --- Sources et copilote ---
+requests==2.34.2
+openai==3.51.0
+
+# --- Tests ---
+pytest==9.2.0
+httpx==0.28.1
